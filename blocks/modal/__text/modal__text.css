@@ -1,0 +1,5 @@
+.modal__text {
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+}
