@@ -1,5 +1,8 @@
 .modal__text {
+	box-sizing: border-box;
 	background-color: #fff;
 	display: flex;
 	flex-direction: column;
+	padding: 34px 36px 34px 36px;
+	border-radius: 10px;
 }
