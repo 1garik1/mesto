@@ -1,9 +1,19 @@
 .profile__button {
     grid-area: edit-button;
     padding: 0;
+    padding-bottom: 33px;
     border: none;
     font: inherit;
     color: inherit;
-    background-color: transparent;
     align-self: end;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-image: url(../../../images/EditButton.svg);
+    width: 24px;
+    height: 24px;
+    transition: .6s;
+}
+.profile__button:hover {
+    opacity: 0.6;
 }

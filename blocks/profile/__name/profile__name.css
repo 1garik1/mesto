@@ -6,4 +6,8 @@
     line-height: 48px;
     margin: 0;
     align-self: end;
+    max-width: 294px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
