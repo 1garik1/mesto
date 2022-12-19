@@ -1,5 +1,4 @@
 .profile__about {
- /* grid-area: about;*/
   font-style: normal;
   font-weight: 400;
 	font-size: 18px;
@@ -7,6 +6,9 @@
 	margin: 0;
 	grid-row: 2 / 3;
     grid-column: -3;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 @media screen and (max-width: 767px) {
 	.profile__about {

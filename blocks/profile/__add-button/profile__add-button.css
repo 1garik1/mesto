@@ -24,5 +24,10 @@
 @media screen and (max-width: 767px){
     .profile__add-button {
         margin: 0;
+        min-width: 282px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url(../../../images/addbtn320.svg);
+
     }
 }
