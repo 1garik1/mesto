@@ -13,8 +13,7 @@
 @media screen and (max-width: 767px) {
 	.profile__about {
 		font-size: 14px;
-		line-height: 17px;
-		text-align: left;
+		line-height: 18px;
 		grid-row: 2;
 		grid-column-start: 1;
 		grid-column-end: 3;
