@@ -5,11 +5,11 @@
 	top: -40px;
 	right: -40px;
 	padding: 0;
-    border: none;
-    font: inherit;
-    color: inherit;
-    cursor: pointer;
-    background-color: transparent;
+  border: none;
+  font: inherit;
+  color: inherit;
+	cursor: pointer;
+  background-color: transparent;
 	background-image: url(../../../images/closeicon.svg);
 	transition: .6s;
 }

@@ -1,14 +1,14 @@
 .profile__info {
-		color: #fff;
-		display: grid;
-		grid-template-columns: fit-content(75%) min-content;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		overflow: hidden;
-		flex-grow: 1;
-		column-gap: 18px;
-		row-gap: 16px;
-		position: relative;
+	color: #fff;
+	display: grid;
+	grid-template-columns: fit-content(75%) min-content;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	flex-grow: 1;
+	column-gap: 18px;
+	row-gap: 16px;
+	position: relative;
 }
 @media screen and (max-width: 767px) {
 	.profile__info {
