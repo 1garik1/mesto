@@ -1,6 +1,6 @@
 .elements__figcaption {
-	display: flex;
-	justify-content: space-between;
-	max-width: 246px;
-	margin: auto;
+  display: flex;
+  justify-content: space-between;
+  max-width: 246px;
+  margin: auto;
 }
