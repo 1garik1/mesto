@@ -16,7 +16,7 @@ modal.addEventListener("click", (event) => {
         modal.classList.remove(MODAL_ACTIVE_CLASS);
     }
 
-}) // задаем действие, закрывающее всплывающее окно
+}) // задаем действие, закрывающее всплывающее окно по клику вне модального окна
 
 let formElement = document.querySelector(".form");//задаем общую форму
 let nameInput = document.querySelector(".form__name");//задаем строку 'name'
