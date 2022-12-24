@@ -12,76 +12,77 @@
     <header class="header">
       <img class="header__logo" src="images/Vector.svg" alt="логотип сайта">    
     </header>
-    <section class="profile">
-      <img class="profile__photo" src="images/profile_image.png" alt="Фотография профиля">
-      <div class="profile__info">
-        <h2 class="profile__name">Жак-Ив Кусто</h2>
-        <p class="profile__about">Исследователь океана</p>
-        <button class="profile__button"></button>
-      </div>
-      <button class="profile__add-button"></button>
-    </section>
-    <section class="elements">
-      <div class="elements__element">
-        <img class="elements__image" src="images/karacha.png" alt="Карачаевск">
-        <div class="elements__figcaption">
-          <h2 class="elements__title">Карачаевск</h2>
-          <button class="elements__button"></button>
+    <main class="content">
+      <section class="profile">
+        <img class="profile__photo" src="images/profile_image.png" alt="Фотография профиля">
+        <div class="profile__info">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <p class="profile__about">Исследователь океана</p>
+          <button class="profile__button" type="button"></button>
         </div>
-      </div>
-      <div class="elements__element">
-        <img class="elements__image" src="images/elbrus.png" alt="гора Эльбрус">
-        <div class="elements__figcaption">
-          <h2 class="elements__title">Гора Эльбрус</h2>
-          <button class="elements__button"></button>
+        <button class="profile__add-button" type="button"></button>
+      </section>
+      <section class="elements">
+        <article class="elements__element">
+          <img class="elements__image" src="images/karacha.png" alt="Карачаевск">
+          <div class="elements__figcaption">
+            <h2 class="elements__title">Карачаевск</h2>
+            <button class="elements__button" type="button"></button>
+          </div>
+        </article>
+        <article class="elements__element">
+          <img class="elements__image" src="images/elbrus.png" alt="гора Эльбрус">
+          <div class="elements__figcaption">
+            <h2 class="elements__title">Гора Эльбрус</h2>
+            <button class="elements__button" type="button"></button>
+          </div>
+        </article>
+        <article class="elements__element">
+          <img class="elements__image" src="images/dombai.png" alt="Домбай">
+          <div class="elements__figcaption">
+            <h2 class="elements__title">Домбай</h2>
+            <button class="elements__button" type="button"></button>
+          </div>
+        </article>
+        <article class="elements__element">
+          <img class="elements__image" src="images/dombai.png" alt="Домбай">
+          <div class="elements__figcaption">
+            <h2 class="elements__title">Домбай</h2>
+            <button class="elements__button" type="button"></button>
+          </div>
+        </article>
+        <article class="elements__element">
+          <img class="elements__image" src="images/elbrus.png" alt="Эльбрус">
+          <div class="elements__figcaption">
+            <h2 class="elements__title">Гора Эльбрус</h2>
+            <button class="elements__button" type="button"></button>
+          </div>
+        </article>
+        <article class="elements__element">
+          <img class="elements__image" src="images/karacha.png" alt="Карачаевск">
+          <div class="elements__figcaption">
+            <h2 class="elements__title">Карачаевск</h2>
+            <button class="elements__button" type="button"></button>
+          </div>
+        </article>
+      </section>
+      <section class="modal">
+        <div class="modal__container">
+          <button class= modal__close type="button"></button>
+          <div class="modal__text">
+           <h2 class="modal__title">Редактировать профиль</h2>
+            <form action="#" method="post" class="form" name="edit_profile">
+              <input class="form__name" type="text" value="Жак-Ив Кусто" name="name" required placeholder="Имя" id="profile_name">
+              <label for="profile_hobby"></label>
+              <input class="form__job" type="text" value="Исследоdатель океанов" name="occupation" required placeholder="Род занятий" id="profile_hobby">
+              <button class="modal__savebutton" type="submit">Сохранить</button>
+            </form>
+          </div> 
         </div>
-      </div>
-      <div class="elements__element">
-        <img class="elements__image" src="images/dombai.png" alt="Домбай">
-        <div class="elements__figcaption">
-          <h2 class="elements__title">Домбай</h2>
-          <button class="elements__button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img class="elements__image" src="images/dombai.png" alt="Домбай">
-        <div class="elements__figcaption">
-          <h2 class="elements__title">Домбай</h2>
-          <button class="elements__button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img class="elements__image" src="images/elbrus.png" alt="Эльбрус">
-        <div class="elements__figcaption">
-          <h2 class="elements__title">Гора Эльбрус</h2>
-          <button class="elements__button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img class="elements__image" src="images/karacha.png" alt="Карачаевск">
-        <div class="elements__figcaption">
-          <h2 class="elements__title">Карачаевск</h2>
-          <button class="elements__button"></button>
-        </div>
-      </div>
-    </section>
-    <footer class="footer">
-      <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
-    </footer>
-    <section class="modal">
-      <div class="modal__content">
-        <button class= modal__close></button>
-        <div class="modal__text">
-          <h2 class="modal__title">Редактировать профиль</h2>
-          <form action="#" method="post" class="form" name="edit_profile">
-            <label for="profile_name"></label>
-            <input class="form__name" type="text" value="Жак-Ив Кусто" name="name" required placeholder="Имя" id="profile_name">
-            <label for="profile_hobby"></label>
-            <input class="form__job" type="text" value="Исследователь океанов" name="occupation" required placeholder="Род занятий" id="profile_hobby">
-            <button class="modal__savebutton">Сохранить</button>
-          </form>
-        </div> 
-      </div>
-    </section>
+      </section>
+    </main>
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+      </footer>
 </body>
 </html>

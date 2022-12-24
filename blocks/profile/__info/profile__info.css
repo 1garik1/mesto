@@ -6,8 +6,8 @@
 	white-space: nowrap;
 	overflow: hidden;
 	flex-grow: 1;
-	column-gap: 8px;
-	row-gap: 16px;
+	column-gap: 18px;
+	row-gap: 8px;
 	position: relative;
 	flex-basis: 50%;
 }

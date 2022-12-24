@@ -1,3 +1,15 @@
 .modal__title {
   margin: 0 0 49px 0;
+
+}
+@media screen and (max-width: 767px) {
+  .modal__title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    align-self: center;
+    margin-bottom: 75px;
+  }
 }
