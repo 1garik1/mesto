@@ -1,9 +1,9 @@
-.modal__title {
+.popup__title {
   margin: 0 0 49px 0;
 
 }
 @media screen and (max-width: 767px) {
-  .modal__title {
+  .popup__title {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 900;

@@ -1,4 +1,4 @@
-.modal__savebutton {
+.popup__savebutton {
   background-color: #000;
   color: #fff;
   min-width: 358px;
@@ -15,11 +15,11 @@
   transition: 0.5s;
     
 }
-.modal__savebutton:hover {
+.popup__savebutton:hover {
   opacity: 80%;
 }
 @media screen and (max-width: 767px) {
-  .modal__savebutton {
+  .popup__savebutton {
     min-width: 238px;
     min-height: 46px;
     align-self: center;
