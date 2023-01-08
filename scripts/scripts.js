@@ -39,3 +39,38 @@ function formSubmitHandler (evt) {
   modal.classList.remove(MODAL_ACTIVE_CLASS);//закрытие попапа после изменения профиля на кнопку сабмит
 }
 formElement.addEventListener('submit', formSubmitHandler);//сохраняем значения согласно функции
+const cardList = document.querySelector('.elements');
+const cardTemplate = document.querySelector('.elements-template').content;
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
+
+initialCards.forEach(function (element){
+  const cardElement = cardTemplate.cloneNode(true);
+  cardElement.querySelector('.elements__image').src = element.link;
+  cardElement.querySelector('.elements__title').textContent = element.name;
+  cardList.append(cardElement);
+})
