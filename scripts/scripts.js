@@ -13,6 +13,8 @@ openModalBtn.addEventListener("click", () => {
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
 
+
+
 });//открытие попапа и внесение данных профиля в инпуты
 
 
