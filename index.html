@@ -32,57 +32,13 @@
             </div>
           </article>
       </template>
-      <!--<section class="elements">
-        <article class="elements__element">
-          <img class="elements__image" src="images/karacha.png" alt="Карачаевск">
-          <div class="elements__figcaption">
-            <h2 class="elements__title">Карачаевск</h2>
-            <button class="elements__button" type="button"></button>
-          </div>
-        </article>
-        <article class="elements__element">
-          <img class="elements__image" src="images/elbrus.png" alt="гора Эльбрус">
-          <div class="elements__figcaption">
-            <h2 class="elements__title">Гора Эльбрус</h2>
-            <button class="elements__button" type="button"></button>
-          </div>
-        </article>
-        <article class="elements__element">
-          <img class="elements__image" src="images/dombai.png" alt="Домбай">
-          <div class="elements__figcaption">
-            <h2 class="elements__title">Домбай</h2>
-            <button class="elements__button" type="button"></button>
-          </div>
-        </article>
-        <article class="elements__element">
-          <img class="elements__image" src="images/dombai.png" alt="Домбай">
-          <div class="elements__figcaption">
-            <h2 class="elements__title">Домбай</h2>
-            <button class="elements__button" type="button"></button>
-          </div>
-        </article>
-        <article class="elements__element">
-          <img class="elements__image" src="images/elbrus.png" alt="Эльбрус">
-          <div class="elements__figcaption">
-            <h2 class="elements__title">Гора Эльбрус</h2>
-            <button class="elements__button" type="button"></button>
-          </div>
-        </article>
-        <article class="elements__element">
-          <img class="elements__image" src="images/karacha.png" alt="Карачаевск">
-          <div class="elements__figcaption">
-            <h2 class="elements__title">Карачаевск</h2>
-            <button class="elements__button" type="button"></button>
-          </div>
-        </article>
-      </section> -->
-    </main>  
-      <section class="popup">
+    </main>
+      <section class="popup popup__type_profile">
         <div class="popup__container">
           <button class= "popup__close" type="button"></button>
           <div class="popup__text">
            <h2 class="popup__title">Редактировать профиль</h2>
-            <form action="#" method="post" class="form" name="edit_profile">
+            <form action="#" method="post" class="form form__type_profile" name="edit_profile">
               <input class="popup__input popup__input_type_name" type="text" value="Жак-Ив Кусто" name="name" required placeholder="Имя" id="profile_name">
               <label for="profile_hobby"></label>
               <input class="popup__input popup__input_type_job" type="text" value="Исследоdатель океанов" name="occupation" required placeholder="Род занятий" id="profile_hobby">
@@ -91,6 +47,20 @@
           </div> 
         </div>
       </section>
+      <section class="popup popup__type_photo">
+        <div class="popup__container">
+          <button class= "popup__close" type="button"></button>
+          <div class="popup__text">
+           <h2 class="popup__title popup__new-title">Новое место</h2>
+            <form action="#" method="post" class="form formType_photo" name="edit_profile">
+              <input class="popup__input popup__input_type_title" type="text" value="название" name="card" required placeholder="карточка" id="photo-title">
+              <input class="popup__input popup__input_type_src" type="url" value="ссылка на картинку" name="link" required placeholder="Род занятий" id="photo-src">
+              <button class="popup__savebutton" type="submit">Создать</button>
+            </form>
+          </div> 
+        </div>
+      </section>
+
       <footer class="footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
       </footer>
