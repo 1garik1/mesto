@@ -23,9 +23,10 @@
         <button class="profile__add-button" type="button"></button>
       </section>
       <div class="elements"></div>
-      <template class="elements-template">
+
+      <template class="elements-template" id="elements-template">
           <article class="elements__element">
-            <img src=" " class="elements__image">
+            <img src=" " link = "" class="elements__image">
             <div class="elements__figcaption">
               <h2 class="elements__title"></h2>
               <button class="elements__button" type="button"></button>
@@ -52,10 +53,10 @@
           <button class= "popup__close" type="button"></button>
           <div class="popup__text">
            <h2 class="popup__title popup__new-title">Новое место</h2>
-            <form action="#" method="post" class="form formType_photo" name="edit_profile">
+            <form action="#" method="post" class="form form__type_photo" name="edit_profile">
               <input class="popup__input popup__input_type_title" type="text" value="название" name="card" required placeholder="карточка" id="photo-title">
-              <input class="popup__input popup__input_type_src" type="url" value="ссылка на картинку" name="link" required placeholder="Род занятий" id="photo-src">
-              <button class="popup__savebutton" type="submit">Создать</button>
+              <input class="popup__input popup__input_type_src" type="url" value="ссылка на картинку" name="link" required placeholder="" id="photo-src">
+              <button class="popup__savebutton popup__savebutton_card" type="submit">Создать</button>
             </form>
           </div> 
         </div>

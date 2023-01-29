@@ -19,59 +19,11 @@ const MODAL_ACTIVE_CLASS = 'popup_active';//задаем активное сос
 const modalContent = document.querySelector('.popup__text');//задаем весь контент попапа
 const formElementProfile = document.querySelector('.form');//задаем форму
 
+const container = document.querySelector('.content');
+const cardContainer = container.querySelector('.elements');
+const formCards = document.querySelector('.form__type_photo')
 
-
-
-const titleInput = document.querySelector('.popup__input_type_title');
-const linkInput = document.querySelector('.popup__input_type_link');
-
-
-openModalBtn.addEventListener("click", () => {
-    popupProfile.classList.add(MODAL_ACTIVE_CLASS);
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileJob.textContent;
-
-
-
-});//открытие попапа и внесение данных профиля в инпуты
-
-
-closeProfileButton.addEventListener("click", (event) => {
-  if(!modalContent.contains(event.ModalCloseBtn)) {
-    popupProfile.classList.remove(MODAL_ACTIVE_CLASS);
-    }
-})//закрытие попапа через кнопку закрытия
-
-
-modalContent.addEventListener("click", (event) => {
-  if(!modalContent.contains(event.target)) {
-    popupProfile.classList.remove(MODAL_ACTIVE_CLASS);
-  }
-
-})//закрытие попапа по клику вне попапа
-
-openSecondModalBtn.addEventListener("click", () => {
-  popupPhoto.classList.add(MODAL_ACTIVE_CLASS);
-
-
-
-
-});
-closePhotoButton.addEventListener('click', () => {
-  popupPhoto.classList.remove(MODAL_ACTIVE_CLASS);
-})
-function formSubmitHandler (evt) {
-  evt.preventDefault();
-  profileName.textContent = nameInput.value;
-  profileJob.textContent = jobInput.value;
-  modal.classList.remove(MODAL_ACTIVE_CLASS);//закрытие попапа после изменения профиля на кнопку сабмит
-}
-formElementProfile.addEventListener('submit', formSubmitHandler);//сохраняем значения согласно функции
-
-
-const cardList = document.querySelector('.elements');
-const cardTemplate = document.querySelector('.elements-template').content;
-const initialCards = [
+let initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -99,8 +51,79 @@ const initialCards = [
 ];
 
 initialCards.forEach(function (element){
-  const cardElement = cardTemplate.cloneNode(true);
-  cardElement.querySelector('.elements__image').src = element.link;
-  cardElement.querySelector('.elements__title').textContent = element.name;
-  cardList.append(cardElement);
-})
+const cardTemplate = document.querySelector('#elements-template').content;
+console.log(cardTemplate);
+const cardElement = cardTemplate.querySelector('.elements__element').cloneNode(true);
+cardElement.querySelector('.elements__title').textContent= element.name;
+cardElement.querySelector('.elements__image').src = element.link;
+cardContainer.append(cardElement);
+
+
+});
+console.log(initialCards);
+//===============================================
+const titleInput = document.querySelector('.popup__input_type_title');
+const cardInput = document.querySelector('.popup__input_type_src');
+
+
+function addCard (nameValue, linkValue) {
+
+  const cardTemplate = document.querySelector('#elements-template').content;
+  const cardElement = cardTemplate.querySelector('.elements__element').cloneNode(true);
+  cardElement.querySelector('.elements__title').textContent = nameValue;
+  cardElement.querySelector('.elements__image').src = linkValue;
+  cardContainer.prepend(cardElement);
+}
+
+
+function formSubmitionHandler (evt) {
+  evt.preventDefault();
+  const title = document.querySelector('.popup__input_type_title');
+  const image = document.querySelector('.popup__input_type_src');
+  addCard(title.value, image.value);
+  title.value = '';
+  image.value = '';
+popupPhoto.classList.remove(MODAL_ACTIVE_CLASS);//закрытие попапа после изменения профиля на кнопку сабмит
+};
+//================================================
+
+
+
+function openModal () {
+  popupProfile.classList.add(MODAL_ACTIVE_CLASS);
+};
+
+function closeModal (event) {
+  if(!modalContent.contains(event.ModalCloseBtn)) {
+    popupProfile.classList.remove(MODAL_ACTIVE_CLASS);
+    }
+};
+
+function formSubmitHandler (evt) {
+  evt.preventDefault();
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = jobInput.value;
+  popupProfile.classList.remove(MODAL_ACTIVE_CLASS);//закрытие попапа после изменения профиля на кнопку сабмит
+  console.log('sadsadsfafd');
+
+};
+//==================================================
+function openSecondModal () {
+  popupPhoto.classList.add(MODAL_ACTIVE_CLASS);
+};
+
+function closeSecondModal () {
+  const titleInput = document.querySelector('.popup__input_type_title').value;
+  const cardInput = document.querySelector('.popup__input_type_src').value;
+  popupPhoto.classList.remove(MODAL_ACTIVE_CLASS);
+};
+
+
+//===========================================================
+openModalBtn.addEventListener('click', openModal);
+closeProfileButton.addEventListener('click', closeModal);
+formElementProfile.addEventListener('submit', formSubmitHandler);
+
+openSecondModalBtn.addEventListener('click', openSecondModal);
+closePhotoButton.addEventListener('click', closeSecondModal);
+formCards.addEventListener('submit', formSubmitionHandler);
