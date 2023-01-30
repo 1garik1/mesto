@@ -21,8 +21,7 @@ const formElementProfile = document.querySelector('.form');//задаем фор
 
 const container = document.querySelector('.content');
 const cardContainer = container.querySelector('.elements');
-const formCards = document.querySelector('.form__type_photo')
-
+const formCards = document.querySelector('.form__type_photo');
 let initialCards = [
   {
     name: 'Архыз',
@@ -56,6 +55,9 @@ console.log(cardTemplate);
 const cardElement = cardTemplate.querySelector('.elements__element').cloneNode(true);
 cardElement.querySelector('.elements__title').textContent= element.name;
 cardElement.querySelector('.elements__image').src = element.link;
+cardElement.querySelector('.elements__button').addEventListener('click', function (evt) {
+  evt.target.classList.toggle('elements__button_active');
+});
 cardContainer.append(cardElement);
 
 
@@ -72,6 +74,9 @@ function addCard (nameValue, linkValue) {
   const cardElement = cardTemplate.querySelector('.elements__element').cloneNode(true);
   cardElement.querySelector('.elements__title').textContent = nameValue;
   cardElement.querySelector('.elements__image').src = linkValue;
+  cardElement.querySelector('.elements__button').addEventListener('click', function (evt) {
+    evt.target.classList.toggle('elements__button_active');
+    });
   cardContainer.prepend(cardElement);
 }
 
