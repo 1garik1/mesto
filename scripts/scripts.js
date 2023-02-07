@@ -1,7 +1,7 @@
 //задаем значения попапам
-const popupProfile = document.querySelector('.popup__type_profile');//профиль
-const popupPhoto = document.querySelector('.popup__type_photo');//картинки
-const popupZoom = document.querySelector('.popup__type_modal');//zoom
+const popupProfile = document.querySelector('.popup__type-profile');//профиль
+const popupPhoto = document.querySelector('.popup__type-photo');//картинки
+const popupZoom = document.querySelector('.popup__type-modal');//zoom
 //задаем значения кнопкам открытия попапов
 const openModalBtn = document.querySelector('.profile__button');
 const openSecondModalBtn = document.querySelector('.profile__add-button');
@@ -22,7 +22,7 @@ const formElementProfile = document.querySelector('.form');//задаем фор
 
 const container = document.querySelector('.content');
 const cardContainer = container.querySelector('.elements');
-const formCards = document.querySelector('.form__type_photo');
+const formCards = document.querySelector('.form__type-photo');
 const dltBtn = document.querySelector('.elements__delete-btn');
 const mdlPicture = document.querySelector('.popup__picture');
 const mdlTitle = document.querySelector('.popup__picture-title');
