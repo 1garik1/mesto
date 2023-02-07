@@ -1,14 +1,15 @@
 //задаем значения попапам
 const popupProfile = document.querySelector('.popup__type_profile');//профиль
 const popupPhoto = document.querySelector('.popup__type_photo');//картинки
-
+const popupZoom = document.querySelector('.popup__type_modal');//zoom
 //задаем значения кнопкам открытия попапов
 const openModalBtn = document.querySelector('.profile__button');
 const openSecondModalBtn = document.querySelector('.profile__add-button');
-
+const picturesOpen = document.querySelector('.elements__image');
 //задаем значения кнопкам закрытия попапов
 const closeProfileButton = popupProfile.querySelector('.popup__close');
 const closePhotoButton = popupPhoto.querySelector('.popup__close');
+//const closeZoombtn = document.querySelector('.popup__close');
 
 const nameInput = document.querySelector('.popup__input_type_name');//задаем инпут имени профиля
 const jobInput = document.querySelector('.popup__input_type_job');//задаем инпут рода занятия профиля
@@ -22,6 +23,9 @@ const formElementProfile = document.querySelector('.form');//задаем фор
 const container = document.querySelector('.content');
 const cardContainer = container.querySelector('.elements');
 const formCards = document.querySelector('.form__type_photo');
+const dltBtn = document.querySelector('.elements__delete-btn');
+const mdlPicture = document.querySelector('.popup__picture');
+const mdlTitle = document.querySelector('.popup__picture-title');
 let initialCards = [
   {
     name: 'Архыз',
@@ -49,24 +53,13 @@ let initialCards = [
   }
 ];
 
-initialCards.forEach(function (element){
-const cardTemplate = document.querySelector('#elements-template').content;
-console.log(cardTemplate);
-const cardElement = cardTemplate.querySelector('.elements__element').cloneNode(true);
-cardElement.querySelector('.elements__title').textContent= element.name;
-cardElement.querySelector('.elements__image').src = element.link;
-cardElement.querySelector('.elements__button').addEventListener('click', function (evt) {
-  evt.target.classList.toggle('elements__button_active');
+initialCards.forEach((element) => {
+  addCard (element.name, element.link);
 });
-cardContainer.append(cardElement);
 
-
-});
-console.log(initialCards);
 //===============================================
 const titleInput = document.querySelector('.popup__input_type_title');
 const cardInput = document.querySelector('.popup__input_type_src');
-
 
 function addCard (nameValue, linkValue) {
 
@@ -74,12 +67,32 @@ function addCard (nameValue, linkValue) {
   const cardElement = cardTemplate.querySelector('.elements__element').cloneNode(true);
   cardElement.querySelector('.elements__title').textContent = nameValue;
   cardElement.querySelector('.elements__image').src = linkValue;
+
   cardElement.querySelector('.elements__button').addEventListener('click', function (evt) {
     evt.target.classList.toggle('elements__button_active');
-    });
+      });
+
+  cardElement.querySelector('.elements__delete-btn').addEventListener('click', function () {
+    cardElement.remove();
+  });
+
+  function openZoom () {
+    popupZoom.classList.add(MODAL_ACTIVE_CLASS);
+    mdlTitle.textContent = cardElement.querySelector('.elements__title').textContent;
+    mdlPicture.src = cardElement.querySelector('.elements__image').src;
+  };
+
+
+  function closeZoom () {
+    popupZoom.classList.remove(MODAL_ACTIVE_CLASS);
+   // mdlTitle.textContent = cardElement.querySelector('.elements__title').textContent;
+    //mdlPicture.src = cardElement.querySelector('.elements__image').src;
+  };
+  
+  cardElement.querySelector('.elements__image').addEventListener('click', openZoom);
+ popupZoom.querySelector('.popup__close').addEventListener('click', closeZoom);
   cardContainer.prepend(cardElement);
 }
-
 
 function formSubmitionHandler (evt) {
   evt.preventDefault();
@@ -109,12 +122,12 @@ function formSubmitHandler (evt) {
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
   popupProfile.classList.remove(MODAL_ACTIVE_CLASS);//закрытие попапа после изменения профиля на кнопку сабмит
-  console.log('sadsadsfafd');
 
 };
 //==================================================
 function openSecondModal () {
   popupPhoto.classList.add(MODAL_ACTIVE_CLASS);
+
 };
 
 function closeSecondModal () {
@@ -122,13 +135,13 @@ function closeSecondModal () {
   const cardInput = document.querySelector('.popup__input_type_src').value;
   popupPhoto.classList.remove(MODAL_ACTIVE_CLASS);
 };
+//===========================================================
 
 
 //===========================================================
 openModalBtn.addEventListener('click', openModal);
 closeProfileButton.addEventListener('click', closeModal);
 formElementProfile.addEventListener('submit', formSubmitHandler);
-
 openSecondModalBtn.addEventListener('click', openSecondModal);
 closePhotoButton.addEventListener('click', closeSecondModal);
 formCards.addEventListener('submit', formSubmitionHandler);
