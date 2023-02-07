@@ -1,7 +1,7 @@
 //задаем значения попапам
-const popupProfile = document.querySelector('.popup__type-profile');//профиль
-const popupPhoto = document.querySelector('.popup__type-photo');//картинки
-const popupZoom = document.querySelector('.popup__type-modal');//zoom
+const popupProfile = document.querySelector('.popup_type_profile');//профиль
+const popupPhoto = document.querySelector('.popup_type_photo');//картинки
+const popupZoom = document.querySelector('.popup_type_modal');//zoom
 //задаем значения кнопкам открытия попапов
 const openModalBtn = document.querySelector('.profile__button');
 const openSecondModalBtn = document.querySelector('.profile__add-button');
