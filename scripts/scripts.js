@@ -56,14 +56,15 @@ const initialCards = [
   }
 ];
 //функция добавления карточки
-initialCards.forEach((elements) => {
-  createCard (elements.name, elements.link);
+initialCards.forEach((element) => {
+ addCard(element.name, element.link);
 });
 //функция создания карточки
 function createCard (name, link) {
   const cardElement = cardTemplate.querySelector('.elements__element').cloneNode(true);
   cardElement.querySelector('.elements__title').textContent = name;
   cardElement.querySelector('.elements__image').src = link;
+  cardElement.querySelector('.elements__image').alt = name;
 //лайк картинки
   cardElement.querySelector('.elements__button').addEventListener('click', function (evt) {
     evt.target.classList.toggle('elements__button_active');
@@ -74,20 +75,26 @@ cardElement.querySelector('.elements__delete-btn').addEventListener('click', fun
 });
 //функция увеличения картинки при нажати на нее
 function openZoom () {
-  popupZoom.classList.add(MODAL_ACTIVE_CLASS);
+  openPopup(popupZoom);
   mdlTitle.textContent = cardElement.querySelector('.elements__title').textContent;
   mdlPicture.src = cardElement.querySelector('.elements__image').src;
+  mdlPicture.alt = cardElement.querySelector('.elements__image').alt;
 };
 //обработчик события увеличения картинки при нажатии
 cardElement.querySelector('.elements__image').addEventListener('click', openZoom);
-//добавление карточек в контейнер
-cardContainer.prepend(cardElement);
+return cardElement
 };
+
+function addCard (name, link){
+  const cardElement = createCard(name, link);
+  cardContainer.prepend(cardElement);
+};
+
 //универсальные кнопки открытия/закрытия попапов
-function popupOpend (popup) {
+function openPopup (popup) {
   popup.classList.add(MODAL_ACTIVE_CLASS);
 };
-function popupClose (popup) {
+function closePopup (popup) {
   popup.classList.remove(MODAL_ACTIVE_CLASS);
 };
 //изменение профиля
@@ -101,22 +108,24 @@ function handleProfileFormSubmit (evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  popupProfile.classList.remove(MODAL_ACTIVE_CLASS);
+  closePopup(popupProfile);
 };
 //сохранение изменений и добавление карточки
 function handleAddFormSubmit (evt) {
   evt.preventDefault();
-  createCard(title.value, image.value);
+  addCard(title.value, image.value);
+  console.log(title, image);
   title.value = ' ';
   image.value = ' ';
-popupPhoto.classList.remove(MODAL_ACTIVE_CLASS);
+ closePopup(popupPhoto);
 };
 //обработчики событий
 openModalBtn.addEventListener('click', editProfile);
-openSecondModalBtn.addEventListener('click', () => { popupOpend(popupPhoto) });
+openSecondModalBtn.addEventListener('click', () => { openPopup(popupPhoto) });
+//все кнопки закрытия(универсальная функция)
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
-  button.addEventListener('click', () => {popupClose(popup)});
+  button.addEventListener('click', () => {closePopup(popup)});
 });
 formElementProfile.addEventListener('submit', handleProfileFormSubmit);
 formCards.addEventListener('submit', handleAddFormSubmit);
