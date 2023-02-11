@@ -84,12 +84,11 @@ function openZoom () {
 cardElement.querySelector('.elements__image').addEventListener('click', openZoom);
 return cardElement
 };
-
+//фукнкция добавления карточки
 function addCard (name, link){
   const cardElement = createCard(name, link);
   cardContainer.prepend(cardElement);
 };
-
 //универсальные кнопки открытия/закрытия попапов
 function openPopup (popup) {
   popup.classList.add(MODAL_ACTIVE_CLASS);
@@ -99,7 +98,7 @@ function closePopup (popup) {
 };
 //изменение профиля
 function editProfile () {
-  popupOpend(popupProfile);
+  openPopup(popupProfile);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 };
