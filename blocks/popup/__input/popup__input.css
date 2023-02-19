@@ -7,6 +7,5 @@
     line-height: 17px;
   }
 .popup__input.form__input-error{
-  border-color: red;
-
+  border-color: #FF0000;
 }
