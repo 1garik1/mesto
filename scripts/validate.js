@@ -5,11 +5,9 @@ const formValidationConfig = {
     buttonSelector: '.popup__savebutton',
     buttonDesabledClass: 'popup__savebutton_disabled',
 };
-
 function disableSubmit(event) {
   event.preventDefault();
 };
-
 function enableValidation (config) {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach((form) => {
@@ -28,21 +26,18 @@ function handleFormInput (event, config) {
     if (input.validity.valid) {
       input.classList.remove(config.errorClass);
       errorElement.textContent ='';
-    } 
+    }
     else {
       input.classList.add(config.errorClass);
       errorElement.textContent = input.validationMessage;
     }
 };
-
 function toggleButtonState (form, config) {
 const buttonSubmit = form.querySelector(config.buttonSelector);
 const isFormValid = form.checkValidity();
-
 buttonSubmit.disabled = !isFormValid;
 buttonSubmit.classList.toggle('popup__savebutton_disabled', !isFormValid);
 };
-
 function addInputListeners (form, config) {
   const inputList = form.querySelectorAll(config.inputSelector);
     inputList.forEach(function (item) {

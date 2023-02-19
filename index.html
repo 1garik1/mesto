@@ -23,7 +23,6 @@
         <button class="profile__add-button" type="button"></button>
       </section>
       <div class="elements"></div>
-
       <template class="elements-template" id="elements-template">
           <article class="elements__element">
             <button type="button" class="elements__delete-btn"></button>
@@ -41,18 +40,17 @@
           <div class="popup__text">
            <h2 class="popup__title">Редактировать профиль</h2>
             <form action="#" method="POST" class="form form_type_profile" name="edit_profile" novalidate>
-
                 <input
                   required
                   class="popup__input popup__input_type_name"
-                  type="text" value="Жак-Ив Кусто" name="name"
+                  type="text"
+                  value="Жак-Ив Кусто"
+                  name="name"
                   placeholder="Имя"
                   id="profile-name"
                   minlength="2"
                   maxlength="40">
-
                 <span id="profile-name-error" class="error profile-name-error"> </span>
-                <label for="profile_hobby"></label>
                 <input
                   required
                   class="popup__input popup__input_type_job"
@@ -66,7 +64,7 @@
                 <span id="profile-job-error" class="error profile-job-error"> </span>
                 <button class="popup__savebutton" type="submit">Сохранить</button>
             </form>
-          </div> 
+          </div>
         </div>
       </section>
       <section class="popup popup_type_photo">
@@ -95,7 +93,7 @@
               <span id="photo-src-error" class="error profile-job-error"> </span>
               <button class="popup__savebutton popup__savebutton_card" type="submit">Создать</button>
             </form>
-          </div> 
+          </div>
         </div>
       </section>
       <section class="popup popup_type_modal">
@@ -105,7 +103,6 @@
           <h2 class="popup__picture-title">1</h2>
         </div>
       </section>
-
       <footer class="footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
       </footer>

@@ -95,6 +95,11 @@ function openPopup (popup) {
 };
 function closePopup (popup) {
   popup.classList.remove(MODAL_ACTIVE_CLASS);
+ };
+ function keyHandler(evt){
+  if (evt.key === 'Escape') {
+      closePopup()
+      };
 };
 //изменение профиля
 function editProfile () {
@@ -113,7 +118,6 @@ function handleProfileFormSubmit (evt) {
 function handleAddFormSubmit (evt) {
   evt.preventDefault();
   addCard(title.value, image.value);
-  console.log(title, image);
   title.value = ' ';
   image.value = ' ';
  closePopup(popupPhoto);
@@ -125,6 +129,16 @@ openSecondModalBtn.addEventListener('click', () => { openPopup(popupPhoto) });
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => {closePopup(popup)});
+  popup.addEventListener('click', (evt) => {
+    if (evt.target === popup) {
+      closePopup(popup);
+     };
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closePopup(popup);
+    };
+    });
 });
 formElementProfile.addEventListener('submit', handleProfileFormSubmit);
 formCards.addEventListener('submit', handleAddFormSubmit);

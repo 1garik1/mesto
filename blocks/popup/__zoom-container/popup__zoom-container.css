@@ -2,6 +2,7 @@
   position: relative;
   background: none;
   padding: 0;
+  max-height: 75vh;
   max-width: 75vw;
   width: auto;
   display: flex;
