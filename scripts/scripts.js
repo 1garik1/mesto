@@ -119,6 +119,7 @@ function handleAddFormSubmit (evt) {
   addCard(title.value, image.value);
   evt.target.reset();
  closePopup(popupPhoto);
+ document.querySelector('.popup__savebutton_card').disabled = true;
  
 };
 //функция закрытия попап черз escape
@@ -140,13 +141,11 @@ closeButtons.forEach((button) => {
   
   const popup = button.closest('.popup');
   button.addEventListener('click', () => {
-    button.disabled = true;
     closePopup(popup);
   });
   popup.addEventListener('click', (evt) => {
     if (evt.target === popup) {
       closePopup(popup);
-      editButton.disabled = true;
      };
   });
   
