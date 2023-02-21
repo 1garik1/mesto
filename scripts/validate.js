@@ -36,13 +36,14 @@ function toggleButtonState (form, config) {
 const buttonSubmit = form.querySelector(config.buttonSelector);
 const isFormValid = form.checkValidity();
 buttonSubmit.disabled = !isFormValid;
-buttonSubmit.classList.toggle('popup__savebutton_disabled', !isFormValid);
+buttonSubmit.classList.toggle(config.buttonDesabledClass, !isFormValid);
 };
 function addInputListeners (form, config) {
   const inputList = form.querySelectorAll(config.inputSelector);
     inputList.forEach(function (item) {
       item.addEventListener('input', (event) =>{
           handleFormInput(event, config);
+          
       });
   });
 };

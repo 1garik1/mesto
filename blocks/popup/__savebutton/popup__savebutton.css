@@ -36,3 +36,10 @@
   border-color: #000;
   border: 1px solid;
 }
+.popup__savebutton:disabled{
+  opacity: 0.2;
+  color: #000;
+  background-color: #fff;
+  border-color: #000;
+  border: 1px solid;
+}

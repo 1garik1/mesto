@@ -18,7 +18,7 @@ const profileJob = document.querySelector('.profile__about');//задаем об
 const MODAL_ACTIVE_CLASS = 'popup_active';//задаем активное состояние попапа
 const modalContent = document.querySelector('.popup__text');//задаем весь контент попапа
 const formElementProfile = document.querySelector('.form_type_profile');//задаем форму
-
+const editButton = document.querySelector('.popup__savebutton');
 const container = document.querySelector('.content');
 const cardContainer = container.querySelector('.elements');
 const formCards = document.querySelector('.form_type_photo');
@@ -92,15 +92,14 @@ function addCard (name, link){
 //универсальные кнопки открытия/закрытия попапов
 function openPopup (popup) {
   popup.classList.add(MODAL_ACTIVE_CLASS);
+  document.addEventListener('keydown', closeByEscape);
 };
 function closePopup (popup) {
   popup.classList.remove(MODAL_ACTIVE_CLASS);
+  document.removeEventListener('keydown', closeByEscape);
+  console.log(popup);
  };
- function keyHandler(evt){
-  if (evt.key === 'Escape') {
-      closePopup()
-      };
-};
+ //функция закрытия попапа с помощью escape
 //изменение профиля
 function editProfile () {
   openPopup(popupProfile);
@@ -118,27 +117,40 @@ function handleProfileFormSubmit (evt) {
 function handleAddFormSubmit (evt) {
   evt.preventDefault();
   addCard(title.value, image.value);
-  title.value = ' ';
-  image.value = ' ';
+  evt.target.reset();
  closePopup(popupPhoto);
+ 
+};
+//функция закрытия попап черз escape
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_active');
+    closePopup(openedPopup);
+  };
 };
 //обработчики событий
 openModalBtn.addEventListener('click', editProfile);
-openSecondModalBtn.addEventListener('click', () => { openPopup(popupPhoto) });
+openSecondModalBtn.addEventListener('click', () => {
+  
+  openPopup(popupPhoto);
+   
+});
 //все кнопки закрытия(универсальная функция)
 closeButtons.forEach((button) => {
+  
   const popup = button.closest('.popup');
-  button.addEventListener('click', () => {closePopup(popup)});
+  button.addEventListener('click', () => {
+    button.disabled = true;
+    closePopup(popup);
+  });
   popup.addEventListener('click', (evt) => {
     if (evt.target === popup) {
       closePopup(popup);
+      editButton.disabled = true;
      };
   });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closePopup(popup);
-    };
-    });
+  
 });
+  
 formElementProfile.addEventListener('submit', handleProfileFormSubmit);
 formCards.addEventListener('submit', handleAddFormSubmit);
