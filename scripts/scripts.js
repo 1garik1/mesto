@@ -1,6 +1,6 @@
 import Card from './Card.js';
+import FormValidator from './validate.js';
 //задаем значения попапам
-const popup = document.querySelector('.popup');
 const popupProfile = document.querySelector('.popup_type_profile');//профиль
 const popupPhoto = document.querySelector('.popup_type_photo');//картинки
 const popupZoom = document.querySelector('.popup_type_modal');//zoom
@@ -16,19 +16,14 @@ const jobInput = document.querySelector('.popup__input_type_job');//задаем
 const profileName = document.querySelector('.profile__name');//задаем обозначение имени профиля
 const profileJob = document.querySelector('.profile__about');//задаем обозначение рода деятельности профиля
 //профайл
-const MODAL_ACTIVE_CLASS = 'popup_active';//задаем активное состояние попапа
-const modalContent = document.querySelector('.popup__text');//задаем весь контент попапа
 const formElementProfile = document.querySelector('.form_type_profile');//задаем форму
-const editButton = document.querySelector('.popup__savebutton');
 //контейнеры
 const container = document.querySelector('.content');
 const cardContainer = container.querySelector('.elements');
 
 const formCards = document.querySelector('.form_type_photo');
-//const dltBtn = document.querySelector('.elements__delete-btn');
-//const mdlPicture = document.querySelector('.popup__picture');
-//const mdlTitle = document.querySelector('.popup__picture-title');
-//const cardTemplate = document.querySelector('#elements-template').content;
+const mdlPicture = document.querySelector('.popup__picture');
+const mdlTitle = document.querySelector('.popup__picture-title');
 const title = document.querySelector('.popup__input_type_title');
 const image = document.querySelector('.popup__input_type_src');
 
@@ -100,15 +95,14 @@ function handleAddFormSubmit (evt) {
 //============================================================
 //универсальные кнопки открытия/закрытия попапов
 function openPopup (popup) {
-  popup.classList.add(MODAL_ACTIVE_CLASS);
+  popup.classList.add('popup_active');
 
-  document.addEventListener('mousedown', handleOverlay);
   document.addEventListener('keydown', closeByEscape);
+  
 };
 function closePopup (popup) {
-  popup.classList.remove(MODAL_ACTIVE_CLASS);
-
-  document.addEventListener('mousedown', handleOverlay);
+  popup.classList.remove('popup_active');
+ 
   document.removeEventListener('keydown', closeByEscape);
  };
 //функция закрытия попап черз escape
@@ -118,13 +112,7 @@ function closeByEscape(evt) {
     closePopup(openedPopup);
   };
 };
-//функция закрытия по клику вне попапа
-function handleOverlay(evt) {
-  const openedPopup = document.querySelector('.popup_active');
-  if (openedPopup && evt.target === openedPopup) {
-    closePopup(openedPopup);
-  };
-}
+
 //============================================================
 //обработчики событий
 openModalBtn.addEventListener('click', editProfile);
@@ -133,15 +121,8 @@ openSecondModalBtn.addEventListener('click', () => {
   openPopup(popupPhoto);
    
 });
-
-/*function openZoom () {
-  openPopup(popupZoom);
-  mdlTitle.textContent = cardElement.querySelector('.elements__title').textContent;
-  mdlPicture.src = cardElement.querySelector('.elements__image').src;
-  mdlPicture.alt = cardElement.querySelector('.elements__image').alt;
-};*/
 //все кнопки закрытия(универсальная функция)
-/*closeButtons.forEach((button) => {
+closeButtons.forEach((button) => {
   
   const popup = button.closest('.popup');
   button.addEventListener('click', () => {
@@ -152,7 +133,7 @@ openSecondModalBtn.addEventListener('click', () => {
       closePopup(popup);
      };
   });
-})*/
+})
   
 
 formElementProfile.addEventListener('submit', handleProfileFormSubmit);
