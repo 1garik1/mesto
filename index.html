@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pages/index.css">
     <title>Mesto</title>
-    <script defer src="scripts/scripts.js"></script>
+
 </head>
 <body class="page">
     <header class="header">
@@ -22,7 +22,9 @@
         </div>
         <button class="profile__add-button" type="button"></button>
       </section>
-      <div class="elements"></div>
+      <div class="elements">
+        
+      </div>
       <template class="elements-template" id="elements-template">
           <article class="elements__element">
             <button type="button" class="elements__delete-btn"></button>
@@ -107,6 +109,8 @@
       <footer class="footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
       </footer>
-      <script src="scripts/validate.js"></script>
+      <script type="module" src="scripts/scripts.js"></script>
+      <script type="module" src="scripts/Card.js"></script>
+      <script type="module" src="scripts/validate.js"></script>
 </body>
 </html>
