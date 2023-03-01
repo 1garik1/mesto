@@ -7,26 +7,29 @@ const popupZoom = document.querySelector('.popup_type_modal');//zoom
 //задаем значения кнопкам открытия попапов
 const openModalBtn = document.querySelector('.profile__button');
 const openSecondModalBtn = document.querySelector('.profile__add-button');
-const picturesOpen = document.querySelector('.elements__image');
 //задаем значения кнопкам закрытия попапов
 const closeButtons = document.querySelectorAll('.popup__close');
-//инпуты профиля
+// профилb
 const nameInput = document.querySelector('.popup__input_type_name');//задаем инпут имени профиля
 const jobInput = document.querySelector('.popup__input_type_job');//задаем инпут рода занятия профиля
 const profileName = document.querySelector('.profile__name');//задаем обозначение имени профиля
 const profileJob = document.querySelector('.profile__about');//задаем обозначение рода деятельности профиля
-//профайл
 const formElementProfile = document.querySelector('.form_type_profile');//задаем форму
 //контейнеры
 const container = document.querySelector('.content');
 const cardContainer = container.querySelector('.elements');
 
 const formCards = document.querySelector('.form_type_photo');
-const mdlPicture = document.querySelector('.popup__picture');
-const mdlTitle = document.querySelector('.popup__picture-title');
 const title = document.querySelector('.popup__input_type_title');
 const image = document.querySelector('.popup__input_type_src');
-
+//конфиг объект для валидации
+const config = {
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__savebutton',
+  inactiveBtnClass: 'popup__savebutton_disabled',
+  inputErrorClass: 'form__input-error',
+  errorClass: 'error',
+};
 const initialCards = [
   {
     name: 'Архыз',
@@ -55,56 +58,61 @@ const initialCards = [
 ];
 
 //создаем карточку
-function createCard(item){
+function createCard(item) {
   const card = new Card(item, '#elements-template');
   return card.generateCard();
-}
+};
 //перебираем массив initialCards
 initialCards.forEach((item) => {
   const cardElement = createCard(item);
   cardContainer.append(cardElement);
 });
 
- //функция закрытия попапа с помощью escape
-//изменение профиля
-function editProfile () {
-  openPopup(popupProfile);
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
-};
-//сохранение изменений профиля
-function handleProfileFormSubmit (evt) {
-  evt.preventDefault();
-  profileName.textContent = nameInput.value;
-  profileJob.textContent = jobInput.value;
-  closePopup(popupProfile);
-};
-//сохранение изменений и добавление карточки
-function handleAddFormSubmit (evt) {
+//сохранение изменений и добавление новой карточки
+function handleAddFormSubmit(evt) {
   evt.preventDefault();
   const data = {};
   data.name = title.value;
   data.link = image.value;
   const newCard = createCard(data);
   cardContainer.prepend(newCard);
-  
- closePopup(popupPhoto);
- document.querySelector('.popup__savebutton_card').disabled = true;
- 
+  formCards.reset();
+
+  validatePhoto.toggleButtonState();
+  closePopup(popupPhoto);
 };
+
+//функция закрытия попапа с помощью escape
+//изменение профиля
+function editProfile() {
+  openPopup(popupProfile);
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
+  validateProfile.hideInputErrors();
+};
+//сохранение изменений профиля
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = jobInput.value;
+
+  closePopup(popupProfile);
+};
+
 //============================================================
 //универсальные кнопки открытия/закрытия попапов
-function openPopup (popup) {
+function openPopup(popup) {
   popup.classList.add('popup_active');
 
   document.addEventListener('keydown', closeByEscape);
-  
+
 };
-function closePopup (popup) {
+function closePopup(popup) {
   popup.classList.remove('popup_active');
- 
+
   document.removeEventListener('keydown', closeByEscape);
- };
+};
 //функция закрытия попап черз escape
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
@@ -112,18 +120,21 @@ function closeByEscape(evt) {
     closePopup(openedPopup);
   };
 };
+const validateProfile = new FormValidator(config, formElementProfile);
+const validatePhoto = new FormValidator(config, formCards);
+validateProfile.enableValidation();
+validatePhoto.enableValidation();
 
 //============================================================
 //обработчики событий
 openModalBtn.addEventListener('click', editProfile);
+openZoom.addEventListener('click', )
 openSecondModalBtn.addEventListener('click', () => {
-  
   openPopup(popupPhoto);
-   
 });
 //все кнопки закрытия(универсальная функция)
 closeButtons.forEach((button) => {
-  
+
   const popup = button.closest('.popup');
   button.addEventListener('click', () => {
     closePopup(popup);
@@ -131,10 +142,9 @@ closeButtons.forEach((button) => {
   popup.addEventListener('click', (evt) => {
     if (evt.target === popup) {
       closePopup(popup);
-     };
+    };
   });
 })
-  
 
 formElementProfile.addEventListener('submit', handleProfileFormSubmit);
 formCards.addEventListener('submit', handleAddFormSubmit);

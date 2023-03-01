@@ -1,116 +1,85 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="pages/index.css">
-    <title>Mesto</title>
-
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pages/index.css">
+  <title>Mesto</title>
 </head>
 <body class="page">
-    <header class="header">
-      <img class="header__logo" src="images/Vector.svg" alt="логотип сайта">    
-    </header>
-    <main class="content">
-      <section class="profile">
-        <img class="profile__photo" src="images/profile_image.png" alt="Фотография профиля">
-        <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <p class="profile__about">Исследователь океана</p>
-          <button class="profile__button" type="button"></button>
-        </div>
-        <button class="profile__add-button" type="button"></button>
-      </section>
-      <div class="elements">
-        
+  <header class="header">
+    <img class="header__logo" src="images/Vector.svg" alt="логотип сайта">
+  </header>
+  <main class="content">
+    <section class="profile">
+      <img class="profile__photo" src="images/profile_image.png" alt="Фотография профиля">
+      <div class="profile__info">
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
+        <p class="profile__about">Исследователь океана</p>
+        <button class="profile__button" type="button"></button>
       </div>
-      <template class="elements-template" id="elements-template">
-          <article class="elements__element">
-            <button type="button" class="elements__delete-btn"></button>
-            <img src=" " link = "" class="elements__image">
-            <div class="elements__figcaption">
-              <h2 class="elements__title"></h2>
-              <button class="elements__button" type="button"></button>
-            </div>
-          </article>
-      </template>
-    </main>
-      <section class="popup popup_type_profile">
-        <div class="popup__container">
-          <button class= "popup__close" type="button"></button>
-          <div class="popup__text">
-           <h2 class="popup__title">Редактировать профиль</h2>
-            <form action="#" method="POST" class="form form_type_profile" name="edit_profile" novalidate>
-                <input
-                  required
-                  class="popup__input popup__input_type_name"
-                  type="text"
-                  value="Жак-Ив Кусто"
-                  name="name"
-                  placeholder="Имя"
-                  id="profile-name"
-                  minlength="2"
-                  maxlength="40">
-                <span id="profile-name-error" class="error profile-name-error"> </span>
-                <input
-                  required
-                  class="popup__input popup__input_type_job"
-                  type="text"
-                  value="Исследователь океанов"
-                  name="profile-job"
-                  placeholder="Род занятий"
-                  id="profile-job"
-                  minlength="2"
-                  maxlength="200">
-                <span id="profile-job-error" class="error profile-job-error"> </span>
-                <button class="popup__savebutton" type="submit">Сохранить</button>
-            </form>
-          </div>
+      <button class="profile__add-button" type="button"></button>
+    </section>
+    <div class="elements">
+    </div>
+    <template class="elements-template" id="elements-template">
+      <article class="elements__element">
+        <button type="button" class="elements__delete-btn"></button>
+        <img src=" " link="" class="elements__image">
+        <div class="elements__figcaption">
+          <h2 class="elements__title"></h2>
+          <button class="elements__button" type="button"></button>
         </div>
-      </section>
-      <section class="popup popup_type_photo">
-        <div class="popup__container">
-          <button class= "popup__close" type="button"></button>
-          <div class="popup__text">
-           <h2 class="popup__title popup__new-title">Новое место</h2>
-            <form action="#" method="POST" class="form form_type_photo" name="add-picture" novalidate>
-              <input
-              class="popup__input popup__input_type_title"
-              type="text"
-              placeholder="название"
-              name="card-title"
-              required
-              id="photo-title"
-              minlength="2"
-              maxlength="30">
-              <span id="photo-title-error" class="error profile-job-error"> </span>
-              <input
-              required
-              class="popup__input popup__input_type_src"
-              type="url"
-              value=""
-              placeholder="ссылка на картинку"
-              name="photo-src"
-              id="photo-src">
-              <span id="photo-src-error" class="error profile-job-error"> </span>
-              <button class="popup__savebutton popup__savebutton_card" type="submit">Создать</button>
-            </form>
-          </div>
-        </div>
-      </section>
-      <section class="popup popup_type_modal">
-        <div class="popup__container popup__zoom-container">
-          <button class="popup__close"  type="button"></button>
-          <img class="popup__picture" alt="#" src="#">
-          <h2 class="popup__picture-title">1</h2>
-        </div>
-      </section>
-      <footer class="footer">
-        <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
-      </footer>
-      <script type="module" src="scripts/scripts.js"></script>
-      <script type="module" src="scripts/Card.js"></script>
-      <script type="module" src="scripts/validate.js"></script>
+      </article>
+    </template>
+  </main>
+  <section class="popup popup_type_profile">
+    <div class="popup__container">
+      <button class="popup__close" type="button"></button>
+      <div class="popup__text">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form action="#" method="POST" class="form form_type_profile" name="edit_profile" novalidate>
+          <input required class="popup__input popup__input_type_name" type="text" value="Жак-Ив Кусто" name="name"
+            placeholder="Имя" id="profile-name" minlength="2" maxlength="40">
+          <span id="profile-name-error" class="error profile-name-error"> </span>
+          <input required class="popup__input popup__input_type_job" type="text" value="Исследователь океанов"
+            name="profile-job" placeholder="Род занятий" id="profile-job" minlength="2" maxlength="200">
+          <span id="profile-job-error" class="error profile-job-error"> </span>
+          <button class="popup__savebutton" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section class="popup popup_type_photo">
+    <div class="popup__container">
+      <button class="popup__close" type="button"></button>
+      <div class="popup__text">
+        <h2 class="popup__title popup__new-title">Новое место</h2>
+        <form action="#" method="POST" class="form form_type_photo" name="add-picture" novalidate>
+          <input class="popup__input popup__input_type_title" type="text" placeholder="название" name="card-title"
+            required id="photo-title" minlength="2" maxlength="30">
+          <span id="photo-title-error" class="error profile-job-error"> </span>
+          <input required class="popup__input popup__input_type_src" type="url" value=""
+            placeholder="ссылка на картинку" name="photo-src" id="photo-src">
+          <span id="photo-src-error" class="error profile-job-error"> </span>
+          <button class="popup__savebutton popup__savebutton_card" type="submit">Создать</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section class="popup popup_type_modal">
+    <div class="popup__container popup__zoom-container">
+      <button class="popup__close" type="button"></button>
+      <img class="popup__picture" alt="#" src="#">
+      <h2 class="popup__picture-title">1</h2>
+    </div>
+  </section>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+  </footer>
+  <script type="module" src="scripts/scripts.js"></script>
+  <script type="module" src="scripts/Card.js"></script>
+  <script type="module" src="scripts/validate.js"></script>
 </body>
 </html>

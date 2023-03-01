@@ -1,4 +1,4 @@
-//создаем класс карточек
+
 class Card {
 
     constructor(data, cardSelector){
@@ -47,14 +47,10 @@ class Card {
         function openZoom (popup) {
             popup.classList.add('popup_active');
             document.addEventListener('mousedown', handleOverlay);
-           // document.addEventListener('keydown', closeZoomByEscape);
-            
           };
         function closeZoom (popup) {
             popup.classList.remove('popup_active');
-          
             document.removeEventListener('mousedown', handleOverlay);
-           // document.removeEventListener('keydown', closeZoomByEscape);
            };
 
         openZoom(popupZoom)
@@ -63,7 +59,6 @@ class Card {
         mdlTitle.textContent = this._name;
         mdlPicture.src = this._link;
     }
-    
     generateCard() {
         this._getTemplate();
         this._setEventListeners();
