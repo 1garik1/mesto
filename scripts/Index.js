@@ -1,9 +1,9 @@
-import Card from './Card.js';
-import FormValidator from './validate.js';
+import {Card} from './Card.js';
+import FormValidator from './FormValidator.js';
 //задаем значения попапам
 const popupProfile = document.querySelector('.popup_type_profile');//профиль
 const popupPhoto = document.querySelector('.popup_type_photo');//картинки
-const popupZoom = document.querySelector('.popup_type_modal');//zoom
+export const popupZoom = document.querySelector('.popup_type_modal');//zoom
 //задаем значения кнопкам открытия попапов
 const openModalBtn = document.querySelector('.profile__button');
 const openSecondModalBtn = document.querySelector('.profile__add-button');
@@ -102,7 +102,7 @@ function handleProfileFormSubmit(evt) {
 
 //============================================================
 //универсальные кнопки открытия/закрытия попапов
-function openPopup(popup) {
+export function openPopup(popup) {
   popup.classList.add('popup_active');
 
   document.addEventListener('keydown', closeByEscape);
@@ -120,15 +120,16 @@ function closeByEscape(evt) {
     closePopup(openedPopup);
   };
 };
+//валидация форм
 const validateProfile = new FormValidator(config, formElementProfile);
 const validatePhoto = new FormValidator(config, formCards);
 validateProfile.enableValidation();
 validatePhoto.enableValidation();
 
-//============================================================
+
 //обработчики событий
 openModalBtn.addEventListener('click', editProfile);
-openZoom.addEventListener('click', )
+
 openSecondModalBtn.addEventListener('click', () => {
   openPopup(popupPhoto);
 });
