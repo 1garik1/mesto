@@ -1,6 +1,9 @@
-import { openPopup, popupZoom } from "../scripts/Index.js";
+import { popupZoom } from "../utils/constants.js";
+import { openPopup } from "./openClose.js";
 class Card {
-
+  form = document.querySelector('.popup_type_modal');
+  modalPicture;
+  modalTitle;
   constructor(data, cardSelector) {
     this._name = data.name;
     this._link = data.link;
@@ -38,20 +41,25 @@ class Card {
   //попап для просмотра картинок
   _handlecardClick() {
     openPopup(popupZoom)
-    const mdlPicture = document.querySelector('.popup__picture');
-    const mdlTitle = document.querySelector('.popup__picture-title');
-    mdlTitle.textContent = this._name;
-    mdlPicture.src = this._link;
+    this.modalTitle = this.form.querySelector('.popup__picture-title');
+    this.modalPicture = this.form.querySelector('.popup__picture');
+    this.modalTitle.textContent = this._name;
+    this.modalPicture.src = this._link;
+    this.modalTitle.alt = this._name;
+  }
+  _generateElement(image) {
+    image = this._element.querySelector('.elements__image');
+    image.src = this._link;
+    image.alt = this._name;
+    this._element.querySelector('.elements__title').textContent = this._name;
+    return this._element;
   }
   generateCard() {
+
     this._getTemplate();
     this._setEventListeners();
 
-    this._element.querySelector('.elements__image').src = this._link;
-    this._element.querySelector('.elements__image').alt = this._name;
-    this._element.querySelector('.elements__title').textContent = this._name;
-
-    return this._element;
+    return this._generateElement();
   };
 };
-export {Card};
+export { Card };
