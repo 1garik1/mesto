@@ -1,5 +1,5 @@
 import { popupZoom } from "../utils/constants.js";
-import { openPopup } from "./openClose.js";
+import { openPopup } from "../utils/utils.js";
 class Card {
   form = document.querySelector('.popup_type_modal');
   modalPicture;
