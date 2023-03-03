@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="pages/index.css">
   <title>Mesto</title>
 </head>
+
 <body class="page">
   <header class="header">
     <img class="header__logo" src="images/Vector.svg" alt="логотип сайта">
@@ -40,13 +42,17 @@
       <div class="popup__text">
         <h2 class="popup__title">Редактировать профиль</h2>
         <form action="#" method="POST" class="form form_type_profile" name="edit_profile" novalidate>
-          <input required class="popup__input popup__input_type_name" type="text" value="Жак-Ив Кусто" name="name"
-            placeholder="Имя" id="profile-name" minlength="2" maxlength="40">
-          <span id="profile-name-error" class="popup__input-error profile-name-error"> </span>
-          <input required class="popup__input popup__input_type_job" type="text" value="Исследователь океанов"
-            name="profile-job" placeholder="Род занятий" id="profile-job" minlength="2" maxlength="200">
-          <span id="profile-job-error" class="popup__input-error profile-job-error"> </span>
-          <button class="popup__savebutton" type="submit">Сохранить</button>
+          <div class="popup__input-element">
+            <input required class="popup__input popup__input_type_name" type="text" value="Жак-Ив Кусто" name="name"
+              placeholder="Имя" id="profile-name" minlength="2" maxlength="40">
+            <span id="profile-name-error" class="popup__input-error profile-name-error"> </span>
+          </div>
+          <div class="popup__input-element">
+            <input required class="popup__input popup__input_type_job" type="text" value="Исследователь океанов"
+              name="profile-job" placeholder="Род занятий" id="profile-job" minlength="2" maxlength="200">
+            <span id="profile-job-error" class="popup__input-error profile-job-error"> </span>
+            <button class="popup__savebutton" type="submit">Сохранить</button>
+          </div>
         </form>
       </div>
     </div>
@@ -59,14 +65,14 @@
         <form action="#" method="POST" class="form form_type_photo" name="add-picture" novalidate>
           <h2 class="popup__title popup__new-title">Новое место</h2>
           <div class="popup__input-element">
-          <input class="popup__input popup__input_type_title" type="text" placeholder="название" name="card-title"
-            required id="photo-title" minlength="2" maxlength="30">
-          <span id="photo-title-error" class="popup__input-error profile-job-error"> </span>
+            <input class="popup__input popup__input_type_title" type="text" placeholder="название" name="card-title"
+              required id="photo-title" minlength="2" maxlength="30">
+            <span id="photo-title-error" class="popup__input-error profile-job-error"> </span>
           </div>
           <div class="popup__input-element">
-          <input required class="popup__input popup__input_type_src" type="url" value=""
-            placeholder="ссылка на картинку" name="photo-src" id="photo-src">
-          <span id="photo-src-error" class="popup__input-error profile-job-error"> </span>
+            <input required class="popup__input popup__input_type_src" type="url" value=""
+              placeholder="ссылка на картинку" name="photo-src" id="photo-src">
+            <span id="photo-src-error" class="popup__input-error profile-job-error"> </span>
           </div>
           <button class="popup__savebutton popup__savebutton_card" type="submit">Создать</button>
         </form>
@@ -83,9 +89,10 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
-  <script type="module" src="scripts/Index.js"></script>
+  <script type="module" src="scripts/index.js"></script>
   <script type="module" src="scripts/Card.js"></script>
   <script type="module" src="scripts/FormValidator.js"></script>
   <script type="module" src="utils/constants.js"></script>
 </body>
+
 </html>
