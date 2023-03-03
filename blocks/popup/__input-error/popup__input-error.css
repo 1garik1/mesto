@@ -6,4 +6,5 @@
     top: calc(42% + 4px);
     left: 0;
     transition: 0.3s;
+    margin-top: 4px;
 };
