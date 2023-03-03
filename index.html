@@ -40,12 +40,16 @@
       <div class="popup__text">
         <h2 class="popup__title">Редактировать профиль</h2>
         <form action="#" method="POST" class="form form_type_profile" name="edit_profile" novalidate>
+          <div class="popup__input-element">
           <input required class="popup__input popup__input_type_name" type="text" value="Жак-Ив Кусто" name="name"
             placeholder="Имя" id="profile-name" minlength="2" maxlength="40">
           <span id="profile-name-error" class="popup__input-error profile-name-error"> </span>
+        </div>
+        <div class="popup__input-element">
           <input required class="popup__input popup__input_type_job" type="text" value="Исследователь океанов"
             name="profile-job" placeholder="Род занятий" id="profile-job" minlength="2" maxlength="200">
           <span id="profile-job-error" class="popup__input-error profile-job-error"> </span>
+        </div>
           <button class="popup__savebutton" type="submit">Сохранить</button>
         </form>
       </div>
