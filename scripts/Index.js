@@ -4,7 +4,7 @@ import {initialCards, popupPhoto, popupProfile, openModalBtn,
   openSecondModalBtn, closeButtons, nameInput, jobInput,
   profileName, profileJob, formElementProfile, container,
   cardContainer, formCards, title, image, config} from '../utils/constants.js';
-import { openPopup, closePopup} from '../utils/utils.js';
+import { openPopup, closePopup} from './openClose.js';
 
 //создаем карточку
 function createCard(item) {
