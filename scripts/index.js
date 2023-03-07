@@ -1,22 +1,32 @@
-import {Card} from './Card.js';
+import Card from './Card.js';
+import Section from './Section.js';
 import FormValidator from './FormValidator.js';
 import {initialCards, popupPhoto, popupProfile, openModalBtn,
   openSecondModalBtn, closeButtons, nameInput, jobInput,
-  profileName, profileJob, formElementProfile, container,
+  profileName, profileJob, formElementProfile,
   cardContainer, formCards, title, image, config} from '../utils/constants.js';
 import { openPopup, closePopup} from '../utils/utils.js';
 
 //создаем карточку
-function createCard(item) {
+const cardList = new Section({
+  data: initialCards,
+  renderer: (item) => {
+    const card = new Card(item, '#elements-template');
+    const cardElement = card.generateCard();
+    console.log(cardElement)
+    cardList.addItem(cardElement);
+    
+  }
+ }, cardContainer);
+cardList.renderItems();
+/*function createCard(item) {
   const card = new Card(item, '#elements-template');
   return card.generateCard();
 };
 //перебираем массив initialCards
-initialCards.forEach((item) => {
-  const cardElement = createCard(item);
-  cardContainer.append(cardElement);
-});
-
+const cardList = new Section({
+  data: initialCards}, cardContainer);
+cardList.renderItems();*/
 //сохранение изменений и добавление новой карточки
 function handleAddFormSubmit(evt) {
   evt.preventDefault();

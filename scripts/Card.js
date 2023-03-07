@@ -1,5 +1,5 @@
-import { popupZoom } from "../utils/constants.js";
-import { openPopup } from "../utils/utils.js";
+//import { popupZoom } from "../utils/constants.js";
+//import { openPopup } from "../utils/utils.js";
 class Card {
   form = document.querySelector('.popup_type_modal');
   modalPicture;
@@ -62,4 +62,4 @@ class Card {
     return this._generateElement();
   };
 };
-export { Card };
+export default Card;

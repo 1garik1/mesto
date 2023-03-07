@@ -16,7 +16,7 @@ const formElementProfile = document.querySelector('.form_type_profile');//зад
 
 //контейнеры
 const container = document.querySelector('.content');
-const cardContainer = container.querySelector('.elements');
+const cardContainer = '.elements';
 
 const formCards = document.querySelector('.form_type_photo');
 const title = document.querySelector('.popup__input_type_title');
