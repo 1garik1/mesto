@@ -1,8 +1,8 @@
 
 class Card {
 
-  constructor({data, cardSelector, handleCardClick}) {
-    this.data = data;
+  constructor(data, cardSelector, handleCardClick) {
+    this._data = data;
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
@@ -26,7 +26,7 @@ class Card {
       this._handleCardLike();
     });
     this._element.querySelector('.elements__image').addEventListener('click', () => {
-      this._handlecardClick(this.name, this.link);
+      this._handleCardClick(this._data);
     })
   }
   //удаление

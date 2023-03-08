@@ -6,20 +6,20 @@ import Section from './Section.js';
 import FormValidator from './FormValidator.js';
 import {initialCards, popupPhoto, popupProfile, openModalBtn,
   openSecondModalBtn, closeButtons, nameInput, jobInput,
-  profileName, profileJob, formElementProfile,
+  profileName, profileJob, formElementProfile, /*popupZoom,*/
   cardContainer, formCards, title, image, config} from '../utils/constants.js';
 //import { openPopup, closePopup} from '../utils/utils.js';
 import { PopupWithForm } from './PopupWithForm.js';
-
+//открфтие самой карточки
+const modalZoom = new PopupWithImage('.popup_type_modal');
 //создаем карточку
 function createCard(item){
-  const card = new Card({
-    data: item,
-    cardSelector: '#elements-template',
-    handleCardClick: (data) => {
-      
+  const card = new Card(
+    item, '#elements-template',
+    (data) => {
+      modalZoom.open(data);
     }
-})
+)
   const cardElement = card.generateCard();
   return cardElement;
 }

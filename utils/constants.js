@@ -1,7 +1,7 @@
 //задаем значения попапам
 const popupProfile = document.querySelector('.popup_type_profile');//профиль
 const popupPhoto = '.popup_type_photo';//картинки
-const popupZoom = document.querySelector('.popup_type_modal');//zoom
+//const popupZoom = '.popup_type_modal';//zoom
 //задаем значения кнопкам открытия попапов
 const openModalBtn = document.querySelector('.profile__button');
 const openSecondModalBtn = document.querySelector('.profile__add-button');
@@ -55,7 +55,7 @@ const initialCards = [
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
   ];
-export {popupProfile, popupPhoto, popupZoom,
+export {popupProfile, popupPhoto, /*popupZoom,*/
     openModalBtn, openSecondModalBtn, closeButtons,
     nameInput, jobInput, profileName, profileJob,
     formElementProfile, container, cardContainer, formCards,
