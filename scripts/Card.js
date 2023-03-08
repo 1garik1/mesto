@@ -1,22 +1,22 @@
-//import { popupZoom } from "../utils/constants.js";
-//import { openPopup } from "../utils/utils.js";
+
 class Card {
-  form = document.querySelector('.popup_type_modal');
-  modalPicture;
-  modalTitle;
-  constructor(data, cardSelector) {
+
+  constructor({data, cardSelector, handleCardClick}) {
+    this.data = data;
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
+    
   }
   _getTemplate() {
-    const cardElement = document
+    this._element = document
       .querySelector(this._cardSelector)
       .content
       .querySelector('.elements__element')
       .cloneNode(true);
-
-    this._element = cardElement;
+    return this._element;
+  
   }
   _setEventListeners() {
     this._element.querySelector('.elements__delete-btn').addEventListener('click', () => {
@@ -26,7 +26,7 @@ class Card {
       this._handleCardLike();
     });
     this._element.querySelector('.elements__image').addEventListener('click', () => {
-      this._handlecardClick();
+      this._handlecardClick(this.name, this.link);
     })
   }
   //удаление
@@ -38,15 +38,7 @@ class Card {
   _handleCardLike() {
     this._element.querySelector('.elements__button').classList.toggle('elements__button_active');
   }
-  //попап для просмотра картинок
-  _handlecardClick() {
-    openPopup(popupZoom)
-    this.modalTitle = this.form.querySelector('.popup__picture-title');
-    this.modalPicture = this.form.querySelector('.popup__picture');
-    this.modalTitle.textContent = this._name;
-    this.modalPicture.src = this._link;
-    this.modalTitle.alt = this._name;
-  }
+  
   _generateElement(image) {
     image = this._element.querySelector('.elements__image');
     image.src = this._link;
