@@ -1,5 +1,5 @@
 //универсальные кнопки открытия/закрытия попапов
-/*function openPopup(popup) {
+function openPopup(popup) {
     popup.classList.add('popup_active');
 
     document.addEventListener('keydown', closeByEscape);
@@ -17,4 +17,4 @@ function closeByEscape(evt) {
         closePopup(openedPopup);
     };
 };
-export { openPopup, closePopup, closeByEscape };*/
+export { openPopup, closePopup, closeByEscape };

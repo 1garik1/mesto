@@ -5,17 +5,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="pages/index.css">
+ 
   <title>Mesto</title>
 </head>
 
 <body class="page">
   <header class="header">
-    <img class="header__logo" src="images/Vector.svg" alt="логотип сайта">
+    <img class="header__logo" src="<%=require('./images/Vector.svg')%>" alt="логотип сайта">
   </header>
   <main class="content">
     <section class="profile">
-      <img class="profile__photo" src="images/profile_image.png" alt="Фотография профиля">
+      <img class="profile__photo" src="<%=require('./images/profile_image.png')%>" alt="Фотография профиля">
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
         <p class="profile__about">Исследователь океана</p>
@@ -89,13 +89,7 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
-  <script type="module" src="scripts/index.js"></script>
-  <script type="module" src="scripts/Card.js"></script>
-  <script type="module" src="scripts/FormValidator.js"></script>
-  <script type="module" src="utils/constants.js"></script>
-  <script type="module" src="scripts/Section.js"></script>
-  <script type="module" src="scripts/Popup.js"></script>
-  <script type="module" src="scripts/PopupWithForm.js"></script>
+
 </body>
 
 </html>

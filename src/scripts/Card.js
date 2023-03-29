@@ -1,22 +1,20 @@
 
 class Card {
-
   constructor(data, cardSelector, handleCardClick) {
-    this._data = data;
+    this._imageName = data.name;
     this._name = data.name;
-    this._link = data.link;
+    this._imageLink = data.link;
     this._cardSelector = cardSelector;
-    this._handleCardClick = handleCardClick;
-    
+    this._handleCardClick = handleCardClick
   }
   _getTemplate() {
-    this._element = document
+    const cardElement = document
       .querySelector(this._cardSelector)
       .content
       .querySelector('.elements__element')
       .cloneNode(true);
-    return this._element;
-  
+
+    this._element = cardElement;
   }
   _setEventListeners() {
     this._element.querySelector('.elements__delete-btn').addEventListener('click', () => {
@@ -26,7 +24,7 @@ class Card {
       this._handleCardLike();
     });
     this._element.querySelector('.elements__image').addEventListener('click', () => {
-      this._handleCardClick(this._data);
+      this._handleCardClick();
     })
   }
   //удаление
@@ -38,11 +36,10 @@ class Card {
   _handleCardLike() {
     this._element.querySelector('.elements__button').classList.toggle('elements__button_active');
   }
-  
   _generateElement(image) {
     image = this._element.querySelector('.elements__image');
-    image.src = this._link;
-    image.alt = this._name;
+    image.src = this._imageLink;
+    image.alt = this._imageName;
     this._element.querySelector('.elements__title').textContent = this._name;
     return this._element;
   }
