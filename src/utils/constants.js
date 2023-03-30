@@ -8,10 +8,10 @@ const openSecondModalBtn = document.querySelector('.profile__add-button');
 //задаем значения кнопкам закрытия попапов
 const closeButtons = document.querySelectorAll('.popup__close');
 // профилb
-const nameInput = document.querySelector('.popup__input_type_name');//задаем инпут имени профиля
-const jobInput = document.querySelector('.popup__input_type_job');//задаем инпут рода занятия профиля
-const profileName = document.querySelector('.profile__name');//задаем обозначение имени профиля
-const profileJob = document.querySelector('.profile__about');//задаем обозначение рода деятельности профиля
+const nameInput = document.querySelector('.popup_type_profile').querySelector('.popup__input_type_name');//задаем инпут имени профиля
+const jobInput = document.querySelector('.popup_type_profile').querySelector('.popup__input_type_job');//задаем инпут рода занятия профиля
+const profileName = '.profile__name';//задаем обозначение имени профиля
+const profileJob = '.profile__about';//задаем обозначение рода деятельности профиля
 const formElementProfile = document.querySelector('.form_type_profile');//задаем форму
 
 //контейнеры

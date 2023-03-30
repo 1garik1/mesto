@@ -13,7 +13,7 @@ import {PopupWithForm} from './PopupWithForm.js';
 
 //открфтие самой карточки
 
-const userInfo = new UserInfo({profileName, profileJob});
+const userInfo = new UserInfo(profileName, profileJob);
 
 //создаем карточку
 function createCard(item){
@@ -69,12 +69,13 @@ validatePhoto.enableValidation();
 
 //обработчики событий
 openModalBtn.addEventListener('click', () => {
-  const userInfoData = userInfo.getUserInfo();
-  const profileForm = popupProfile.getFormElement();
-  profileForm.elements.name.value = userInfoData.userName;
-  profileForm.elements.about.value = userInfoData.userAbout;
-  validateProfile.enableValidation();
+const getUserInfo = userInfo.getUserInfo();
+nameInput.value = getUserInfo.name;
+jobInput.value = getUserInfo.about;
   popupProfile.open();
+  validateProfile.enableValidation();
+
+  
 })
 
 openSecondModalBtn.addEventListener('click', () => {
