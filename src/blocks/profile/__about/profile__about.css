@@ -10,16 +10,17 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
 @media screen and (max-width: 767px) {
-	.profile__about {
-      font-size: 14px;
-      line-height: 18px;
-      grid-row: 2;
-      grid-column-start: 1;
-      grid-column-end: 3;
-      grid-row-start: 2;
-      grid-row-end: 3;
-      text-align: center;
+  .profile__about {
+    font-size: 14px;
+    line-height: 18px;
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: center;
   }
 
 }

@@ -11,8 +11,9 @@
   grid-row: 1 / 1;
   grid-column: 1 / 2;
 }
+
 @media screen and (max-width: 767px) {
-  .profile__name {  
+  .profile__name {
     font-size: 27px;
     line-height: 33px;
     text-align: center;

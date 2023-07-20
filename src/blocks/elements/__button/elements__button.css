@@ -12,9 +12,11 @@
   align-self: center;
   transition: 0.7s;
 }
+
 .elements__button:hover {
   opacity: 0.5;
 }
+
 .elements__button_active {
   background-image: url(../../../images/Union.svg);
   padding: 0;

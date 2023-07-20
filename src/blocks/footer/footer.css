@@ -8,11 +8,13 @@
   font-size: 18px;
   line-height: 22px;
 }
+
 @media screen and (max-width: 1000px) {
   .footer {
     max-width: 768px;
   }
 }
+
 @media screen and (max-width: 767px) {
   .footer {
     font-size: 14px;
@@ -20,5 +22,5 @@
     max-width: 282px;
     margin-top: 48px;
     margin-bottom: 36px;
-    }
+  }
 }

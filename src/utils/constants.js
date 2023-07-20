@@ -1,22 +1,30 @@
+
+
+
+
+
+
 //задаем значения попапам
 const popupProfileSelector = '.popup_type_profile';//профиль
 const popupPhoto = '.popup_type_photo';//картинки
 const popupZoom = '.popup_type_modal';//zoom
-//задаем значения кнопкам открытия попапов
-const openModalBtn = document.querySelector('.profile__button');
-const openSecondModalBtn = document.querySelector('.profile__add-button');
+
 //задаем значения кнопкам закрытия попапов
 const closeButtons = document.querySelectorAll('.popup__close');
 // профилb
-const nameInput = document.querySelector('.popup_type_profile').querySelector('.popup__input_type_name');//задаем инпут имени профиля
-const jobInput = document.querySelector('.popup_type_profile').querySelector('.popup__input_type_job');//задаем инпут рода занятия профиля
+export const profileElement = document.querySelector('.profile');
+//задаем значения кнопкам открытия попапов
+const openModalBtn = profileElement.querySelector('.profile__button');
+const openSecondModalBtn = profileElement.querySelector('.profile__add-button');
+const nameInput = document.querySelector('.popup__input_type_name');//задаем инпут имени профиля
+const jobInput = document.querySelector('.popup__input_type_job');//задаем инпут рода занятия профиля
 const profileName = '.profile__name';//задаем обозначение имени профиля
 const profileJob = '.profile__about';//задаем обозначение рода деятельности профиля
 const formElementProfile = document.querySelector('.form_type_profile');//задаем форму
-
+export const cardSelector = '#elements-template';
 //контейнеры
 const container = document.querySelector('.content');
-const cardContainer = '.elements';
+const cardContainer = '.elements__list';
 
 const formCards = document.querySelector('.form_type_photo');
 const title = document.querySelector('.popup__input_type_title');

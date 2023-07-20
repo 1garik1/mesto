@@ -23,18 +23,12 @@
       </div>
       <button class="profile__add-button" type="button"></button>
     </section>
-    <div class="elements">
-    </div>
-    <template class="elements-template" id="elements-template">
-      <article class="elements__element">
-        <button type="button" class="elements__delete-btn"></button>
-        <img src=" " link="" class="elements__image">
-        <div class="elements__figcaption">
-          <h2 class="elements__title"></h2>
-          <button class="elements__button" type="button"></button>
-        </div>
-      </article>
-    </template>
+
+    <section class="elements">
+      <ul class="elements__list"></ul>
+    </section>
+   
+    
   </main>
   <section class="popup popup_type_profile">
     <div class="popup__container">
@@ -43,14 +37,14 @@
         <h2 class="popup__title">Редактировать профиль</h2>
         <form action="#" method="POST" class="form form_type_profile" name="edit_profile" novalidate>
           <div class="popup__input-element">
-            <input required class="popup__input popup__input_type_name" type="text" value="Жак-Ив Кусто" name="name"
-              placeholder="Имя" id="profile-name" minlength="2" maxlength="40">
-            <span id="profile-name-error" class="popup__input-error profile-name-error"> </span>
+            <input required class="popup__input popup__input_type_name" type="text" value="Жак-Ив Кусто" name="Name"
+              placeholder="Имя" id="userName" minlength="2" maxlength="40">
+            <span id="userName-error" class="popup__input-error profile-name-error"> </span>
           </div>
           <div class="popup__input-element">
             <input required class="popup__input popup__input_type_job" type="text" value="Исследователь океанов"
-              name="profile-job" placeholder="Род занятий" id="profile-job" minlength="2" maxlength="200">
-            <span id="profile-job-error" class="popup__input-error profile-job-error"> </span>
+              name="About" placeholder="Род занятий" id="userAbout" minlength="2" maxlength="200">
+            <span id="userAbout-error" class="popup__input-error profile-job-error"> </span>
           </div> 
           <button class="popup__savebutton" type="submit">Сохранить</button>
         </form>
@@ -62,16 +56,16 @@
       <button class="popup__close" type="button"></button>
       <div class="popup__text">
 
-        <form action="#" method="POST" class="form form_type_photo" name="add-picture" novalidate>
+        <form action="#" method="POST" class="form form_type_photo" name="placeData" novalidate>
           <h2 class="popup__title popup__new-title">Новое место</h2>
           <div class="popup__input-element">
-            <input class="popup__input popup__input_type_title" type="text" placeholder="название" name="card-title"
-              required id="photo-title" minlength="2" maxlength="30">
-            <span id="photo-title-error" class="popup__input-error profile-job-error"> </span>
+            <input class="popup__input popup__input_type_title" type="text" placeholder="название" name="placeName"
+              required id="photoTitle" minlength="2" maxlength="30">
+            <span id="photoTitle-error" class="popup__input-error profile-job-error"> </span>
           </div>
           <div class="popup__input-element">
             <input required class="popup__input popup__input_type_src" type="url" value=""
-              placeholder="ссылка на картинку" name="photo-src" id="photo-src">
+              placeholder="ссылка на картинку" name="placeLink" id="photo-src">
             <span id="photo-src-error" class="popup__input-error profile-job-error"> </span>
           </div>
           <button class="popup__savebutton popup__savebutton_card" type="submit">Создать</button>
@@ -86,6 +80,16 @@
       <h2 class="popup__picture-title">1</h2>
     </div>
   </section>
+  <template class="elements-template" id="elements-template">
+    <article class="elements__element">
+      <button type="button" class="elements__delete-btn"></button>
+      <img src="" link="" class="elements__image">
+      <div class="elements__figcaption">
+        <h2 class="elements__title"></h2>
+        <button class="elements__button" type="button"></button>
+      </div>
+    </article>
+  </template>
   <footer class="footer">
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>

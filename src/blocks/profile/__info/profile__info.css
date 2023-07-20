@@ -11,6 +11,7 @@
 	position: relative;
 	flex-basis: 50%;
 }
+
 @media screen and (max-width: 767px) {
 	.profile__info {
 		align-self: center;
