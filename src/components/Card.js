@@ -7,46 +7,39 @@ class Card {
     this._handleCardClick = handleCardClick;
   }
   _getTemplate() {
-    const cardElement = document
+    return document
       .querySelector(this._cardSelector)
       .content
       .querySelector('.elements__element')
       .cloneNode(true);
-
-    this._element = cardElement;
   }
   _setEventListeners() {
-    this._element.querySelector('.elements__delete-btn').addEventListener('click', (evt) => {
+    this._cardElement.querySelector('.elements__delete-btn').addEventListener('click', (evt) => {
       this._handleCardDelete(evt);
     })
-    this._element.querySelector('.elements__button').addEventListener('click', (evt) => {
+    this._cardElement.querySelector('.elements__button').addEventListener('click', (evt) => {
       this._handleCardLike(evt);
     });
-    this._element.querySelector('.elements__image').addEventListener('click', (evt) => {
+    this._cardElement.querySelector('.elements__image').addEventListener('click', (evt) => {
       this._handleCardClick(evt);
     })
   }
   //удаление
   _handleCardDelete() {
-    this._element.remove();
+    this._cardElement.remove();
   }
   //лайк
   _handleCardLike() {
-    this._element.querySelector('.elements__button').classList.toggle('elements__button_active');
-  }
-  _generateElement(image) {
-    image = this._element.querySelector('.elements__image');
-    image.src = this._imageLink;
-    image.alt = this._imageName;
-    this._element.querySelector('.elements__title').textContent = this._name;
-    return this._element;
+    this._cardElement.querySelector('.elements__button').classList.toggle('elements__button_active');
   }
   generateCard() {
-
-    this._getTemplate();
+    this._cardElement = this._getTemplate();
+    this._cardsElementImage = this._cardElement.querySelector('.elements__image');
     this._setEventListeners();
-
-    return this._generateElement();
+    this._cardsElementImage.src = this._imageLink;
+    this._cardsElementImage.alt = this._imageName;
+    this._cardElement.querySelector('.elements__title').textContent = this._name;
+    return this._cardElement;
   };
 };
 export default Card;

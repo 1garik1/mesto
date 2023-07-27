@@ -22,6 +22,7 @@ const profileName = '.profile__name';//задаем обозначение им�
 const profileJob = '.profile__about';//задаем обозначение рода деятельности профиля
 const formElementProfile = document.querySelector('.form_type_profile');//задаем форму
 export const cardSelector = '#elements-template';
+
 //контейнеры
 const container = document.querySelector('.content');
 const cardContainer = '.elements__list';
