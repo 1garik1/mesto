@@ -19,7 +19,7 @@ const userInfo = new UserInfo({ profileName, profileJob })
 const popupPhotos = new PopupWithImage(popupZoom);
 popupPhotos.setEventListeners();
 //создаем карточку
-function createNewCard(item, cardSelector) {
+ function createNewCard(item, cardSelector) {
   const card = new Card(item, cardSelector, () => {
     popupPhotos.open(item.link, item.name);
   });
@@ -34,21 +34,25 @@ const cards = new Section({
 }, cardContainer);
 cards.renderItems();
 // создание попапа для редактирования имени
-const popupProfile = new PopupWithForm(popupProfileSelector, () => {
-  const formValues = popupProfile._getInputValues();
-  userInfo.setUserInfo({ userName: formValues.Name, userAbout: formValues.About });
-  popupProfile.close();
+const popupProfile = new PopupWithForm(popupProfileSelector, {
+  handleFormSubmit: (profileData) => {
+    userInfo.setUserInfo({
+      userName: profileData.Name,
+      userAbout: profileData.About
+    });
+    popupProfile.close();
+  }
 });
 popupProfile.setEventListeners();
 //добавление карточки
-const popupNewPhoto = new PopupWithForm(popupPhoto, () => {
-  const formValues = popupNewPhoto._getInputValues();
-  const item = { name: formValues.placeName, link: formValues.placeLink };
-  const cardElement = createNewCard(item, cardSelector);
-  cards.addItem(cardElement);
-  popupNewPhoto.close();
-}
-)
+const popupNewPhoto = new PopupWithForm(popupPhoto, {
+  handleFormSubmit: (formValues) => {
+    cards.addItem(createNewCard({name: formValues.placeName,
+      link: formValues.placeLink}, cardSelector)
+    );
+    popupNewPhoto.close();
+  }
+});
 popupNewPhoto.setEventListeners();
 //валидация форм
 const validateProfile = new FormValidator(config, formElementProfile);

@@ -14,27 +14,23 @@ class Card {
       .cloneNode(true);
   }
   _setEventListeners() {
-    this._cardElement.querySelector('.elements__delete-btn').addEventListener('click', (evt) => {
-      this._handleCardDelete(evt);
-    })
-    this._cardElement.querySelector('.elements__button').addEventListener('click', (evt) => {
-      this._handleCardLike(evt);
-    });
-    this._cardElement.querySelector('.elements__image').addEventListener('click', (evt) => {
-      this._handleCardClick(evt);
-    })
+    this._cardDelete.addEventListener('click', evt => this._handleCardDelete(evt));
+    this._cardLike.addEventListener('click', evt => this._handleCardLike(evt));
+    this._cardsElementImage.addEventListener('click', evt => this._handleCardClick(evt));
   }
   //удаление
   _handleCardDelete() {
     this._cardElement.remove();
   }
   //лайк
-  _handleCardLike() {
-    this._cardElement.querySelector('.elements__button').classList.toggle('elements__button_active');
+  _handleCardLike = (evt) => {
+    evt.target.classList.toggle('elements__button_active');
   }
   generateCard() {
     this._cardElement = this._getTemplate();
     this._cardsElementImage = this._cardElement.querySelector('.elements__image');
+    this._cardLike = this._cardElement.querySelector('.elements__button');
+    this._cardDelete = this._cardElement.querySelector('.elements__delete-btn');
     this._setEventListeners();
     this._cardsElementImage.src = this._imageLink;
     this._cardsElementImage.alt = this._imageName;
