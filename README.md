@@ -11,5 +11,5 @@
 * Картинки.
 
 ###
- [Ссылка на сайт](https://1garik1.github.io/mesto/)
+ [Ссылка на сайт](https://1garik1.github.io/mesto)
 
