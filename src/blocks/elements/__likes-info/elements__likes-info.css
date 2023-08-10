@@ -1,0 +1,5 @@
+.elements__likes-info {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+  }

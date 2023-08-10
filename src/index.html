@@ -15,7 +15,8 @@
   </header>
   <main class="content">
     <section class="profile">
-      <img class="profile__photo" src="<%=require('./images/profile_image.png')%>" alt="Фотография профиля">
+      <button class="profile__avatar-change" type="button" title="Обновить аватар"><img class="profile__photo"
+          src="<%=require('./images/profile_image.png')%>" alt="Фотография профиля"></button>
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
         <p class="profile__about">Исследователь океана</p>
@@ -35,7 +36,7 @@
       <button class="popup__close" type="button"></button>
       <div class="popup__text">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form action="#" method="POST" class="form form_type_profile" name="edit_profile" novalidate>
+        <form action="#" method="POST" class="form form_type_profile" name="profileData" novalidate>
           <div class="popup__input-element">
             <input required class="popup__input popup__input_type_name" type="text" value="Жак-Ив Кусто" name="Name"
               placeholder="Имя" id="userName" minlength="2" maxlength="40">
@@ -59,13 +60,13 @@
         <form action="#" method="POST" class="form form_type_photo" name="placeData" novalidate>
           <h2 class="popup__title popup__new-title">Новое место</h2>
           <div class="popup__input-element">
-            <input class="popup__input popup__input_type_title" type="text" placeholder="название" name="placeName"
-              required id="photoTitle" minlength="2" maxlength="30">
+            <input class="popup__input popup__input_type_title" type="text" placeholder="название" name="name" required
+              id="photoTitle" minlength="2" maxlength="30">
             <span id="photoTitle-error" class="popup__input-error profile-job-error"> </span>
           </div>
           <div class="popup__input-element">
             <input required class="popup__input popup__input_type_src" type="url" value=""
-              placeholder="ссылка на картинку" name="placeLink" id="photo-src">
+              placeholder="ссылка на картинку" name="url" id="photo-src">
             <span id="photo-src-error" class="popup__input-error profile-job-error"> </span>
           </div>
           <button class="popup__savebutton popup__savebutton_card" type="submit">Создать</button>
@@ -76,17 +77,45 @@
   <section class="popup popup_type_modal">
     <div class="popup__container popup__zoom-container">
       <button class="popup__close" type="button"></button>
-      <img class="popup__picture" id="picure" alt="#" src="#">
+      <img class="popup__picture" id="picture" alt="#" src="#">
       <h2 class="popup__picture-title" id="title">1</h2>
     </div>
   </section>
+
+  <section class="popup popup_change-avatar">
+    <div class="popup__container">
+      <button class="popup__close" type="button"></button>
+      <h2 class="popup__title popup__title_size_s">Обновить аватар</h2>
+      <form class="form form_type_avatar-form" name="changeAvatarForm" novalidate>
+        <input type="url" class="popup__input popup__avatar-link" name="src" placeholder="Ссылка на аватар" id="avatar"
+          required>
+        <span class="popup__input-error popup__avatar-link-error" id="avatar-error"></span>
+        <button type="submit" class="popup__savebutton">Сохранить</button>
+      </form>
+
+    </div>
+  </section>
+  <section class="popup popup_form_confirm">
+    <div class="popup__container">
+      <button class="popup__close" type="button"></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <form class="form" name="profileData" novalidate>
+        <button type="submit" class="popup__savebutton">Да</button>
+      </form>
+
+    </div>
+  </section>
+
   <template class="elements-template" id="elements-template">
     <article class="elements__element">
       <button type="button" class="elements__delete-btn"></button>
       <img src="#" link="" class="elements__image">
       <div class="elements__figcaption">
         <h2 class="elements__title"></h2>
+        <div class="elements__likes-info">
         <button class="elements__button" type="button"></button>
+        <span class="elements__counter-likes"></span>
+        </div>
       </div>
     </article>
   </template>
