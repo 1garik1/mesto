@@ -25,9 +25,6 @@ class UserInfo {
     
       getUserId() {
         return this._userId;
-      }
-        
-    
+      }    
 }
-
 export default UserInfo 

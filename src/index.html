@@ -85,24 +85,27 @@
   <section class="popup popup_change-avatar">
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
-      <h2 class="popup__title popup__title_size_s">Обновить аватар</h2>
-      <form class="form form_type_avatar-form" name="changeAvatarForm" novalidate>
-        <input type="url" class="popup__input popup__avatar-link" name="src" placeholder="Ссылка на аватар" id="avatar"
-          required>
-        <span class="popup__input-error popup__avatar-link-error" id="avatar-error"></span>
-        <button type="submit" class="popup__savebutton">Сохранить</button>
-      </form>
-
+      <div class="popup__text popup__text_avatar">
+        <h2 class="popup__title popup__title_size_s">Обновить аватар</h2>
+        <form class="form form_type_avatar-form" name="changeAvatarForm" novalidate>
+          <input type="url" class="popup__input popup__avatar-link popup__input_type_error" name="src"
+            placeholder="Ссылка на аватар" id="avatar" required>
+          <span class="popup__input-error popup__avatar-link-error" id="avatar-error"></span>
+          <button type="submit" class="popup__savebutton popup__savebutton_avatar" disabled>Сохранить</button>
+        </form>
+      </div>
     </div>
   </section>
   <section class="popup popup_form_confirm">
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
-      <h2 class="popup__title">Вы уверены?</h2>
-      <form class="form" name="profileData" novalidate>
-        <button type="submit" class="popup__savebutton">Да</button>
-      </form>
+      <div class="popup__text popup__text_confirm">
+      <h2 class=" popup__title popup__title_confirm">Вы уверены?</h2>
+        <form class="form" name="profileData" novalidate>
+          <button type="submit" class="popup__savebutton">Да</button>
 
+        </form>
+      </div>
     </div>
   </section>
 
@@ -113,8 +116,8 @@
       <div class="elements__figcaption">
         <h2 class="elements__title"></h2>
         <div class="elements__likes-info">
-        <button class="elements__button" type="button"></button>
-        <span class="elements__counter-likes"></span>
+          <button class="elements__button" type="button"></button>
+          <span class="elements__counter-likes"></span>
         </div>
       </div>
     </article>

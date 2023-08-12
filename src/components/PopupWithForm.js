@@ -24,7 +24,7 @@ class PopupWithForm extends Popup {
         this._formElement.addEventListener('submit', (evt) =>  this._handleFormSubmit(evt));
         super.setEventListeners();
     }
-    loadingMessage(isLoading) {
+    renderLoading(isLoading) {
         if (isLoading === true) {
             this._formElementSubmitButton.textContent = 'Сохранение...';
         } else {
