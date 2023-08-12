@@ -38,17 +38,17 @@ class Card {
   }
   setLike() {
     this._cardLike.classList.add('elements__button_active');
-    this.isLiked = true
+    this.isLiked = true;
   }
   unsetLike() {
     this._cardLike.classList.remove('elements__button_active');
     this.isLiked = false;
   }
   likesCounterUpdate(data) {
-  return  this._countLikeElement.textContent = data.length;
+   this._countLikeElement.textContent = data.length;
   }
   _checkUserLike() {
-    return this._likes.some((item) => item._id === this._usersCard);;
+    return this._likes.some((item) => {return item._id === this._usersCard});
   }
   getCardId() {
     return this._cardId;
@@ -62,18 +62,18 @@ class Card {
     this._cardLike = this._cardElement.querySelector('.elements__button');
     if (!this._usersCard) {
       this._cardDelete.remove();
-    }
+    };
 
     this._cardsElementImage.src = this._imageLink;
     this._cardsElementImage.alt = this._imageName;
     this._countLikeElement = this._cardElement.querySelector('.elements__counter-likes');
-    this._countLikeElement.textContent = this._likes.length;
+   
 
     this._cardElement.querySelector('.elements__title').textContent = this._name;
-
+    this._countLikeElement.textContent = this._likes.length;
     this._toggleLikeState();
     this._setEventListeners();
-
+    
     return this._cardElement;
   };
 };

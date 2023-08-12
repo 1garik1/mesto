@@ -74,7 +74,7 @@ popupUpdateAvatar.setEventListeners();
 
 document.querySelector(profileAvatarEditButton).addEventListener('click', () => {
  
-  popupUpdateAvatar.open();
+  popupUpdateAvatar.open();screen
 });
 // создание попапа для редактирования имени
 
@@ -96,7 +96,7 @@ popupProfile.setEventListeners();
 
 //подтверждение удаления карточки
 const popupConfirm = new PopupWithConfirm(popupConfirmSelector);
-popupConfirm.setEventListeners();
+popupConfirm.setEventListener();
 //добавление карточки
 
 const popupNewPhoto = new PopupWithForm(popupPhoto, (evt) => {
@@ -149,6 +149,7 @@ function createNewCard(item, cardSelector) {
 
     },
     //параметр счетчика лайков
+    
     handleLikeCardClick: () => {
       if (card.isLiked) {
         api.deleteCardLike(card.getCardId()).then((data) => {
@@ -159,7 +160,7 @@ function createNewCard(item, cardSelector) {
         });
       } else {
         api.addCardLike(card.getCardId()).then((data) => {
-          card.setLike();
+          card.setLike(); 
           card.likesCounterUpdate(data.likes);//после снятия кликом актиации лайка -1
         }).catch((err) => {
           console.log(err);
