@@ -63,6 +63,7 @@ const popupUpdateAvatar = new PopupWithForm(popupChangeAvatar, (evt) => {
 popupUpdateAvatar.setEventListeners();
 document.querySelector(profileAvatarEditButton).addEventListener('click', () => {
   popupUpdateAvatar.open();
+  popupUpdateAvatarValidator.toggleButtonState();
 });
 // создание попапа для редактирования имени
 const popupProfile = new PopupWithForm(popupProfileSelector, (evt) => {
